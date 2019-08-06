@@ -6,57 +6,8 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  FlatList
+  AppRegistry
 } from 'react-native';
+import APP from "./page/base/rootPage";
 
-export default class MyRNApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: ['1', '2', '3']
-    }
-  }
-
-  render() {
-    return (
-      <FlatList
-        data={this.state.data}
-        renderItem={this.renderCell}
-        keyExtractor={item => item.id}
-      />
-    );
-  }
-
-  renderCell({ item }) {
-    return (
-      <View>
-        <Text>{item}</Text>
-      </View>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('MyRNApp', () => MyRNApp);
+AppRegistry.registerComponent('MyRNApp', () => APP);
