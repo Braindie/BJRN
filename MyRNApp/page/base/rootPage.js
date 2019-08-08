@@ -20,7 +20,7 @@ export default class App extends Component {
       dataString: "点击按钮加载数据",
       loading: false
     };
-    this.fetchData = this.fetchData.bind(this);
+    // this.fetchData = this.fetchData.bind(this);
   }
 
   render() {
