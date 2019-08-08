@@ -11,31 +11,53 @@ import Icon from "react-native-vector-icons/Ionicons"
 // import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Layout from '../layout/layoutPage'
+import LayoutDetailPage from '../layout/layoutDetailPage'
 import Animation from '../animation/animationPage'
-import Newwork from '../network/networkPage'
+import Network from '../network/networkPage'
+import Frame from '../frame/framePage'
+import FunctionPage from '../function/functionPage'
 
-
-// const StackNavigator = createStackNavigator(
-//   {
-//     Layout,
-//     Animation,
-//     Newwork,
-//   },
-//   {
-//     initialRouteName: '布局',
-//     defaultNavigationOptions: {
-//       headerBackTitle: null,
-//       headerTitleStyle: {
-//         fontWeight: 'bold',
-//       },
-//       header: null
-//     }
-//   }
-// )
-
-const LayoutStack = createStackNavigator({Layout})
-const AnimationStack = createStackNavigator({Animation})
-const NetworkStack = createStackNavigator({Newwork})
+const LayoutStack = createStackNavigator({
+  Layout: {
+    screen: Layout,
+    navigationOptions: {
+      headerTitle: '布局'
+    }
+  },
+  Detail: LayoutDetailPage
+})
+const AnimationStack = createStackNavigator({
+  Animation: {
+    screen: Animation,
+    navigationOptions: {
+      headerTitle: '动画'
+    }
+  }
+})
+const NetworkStack = createStackNavigator({
+  Network: {
+    screen: Network,
+    navigationOptions: {
+      headerTitle: '网络'
+    }
+  }
+})
+const FrameStack = createStackNavigator({
+  Frame: {
+    screen: Frame,
+    navigationOptions: {
+      headerTitle: '架构'
+    }
+  }
+})
+const FunctionStack = createStackNavigator({
+  FunctionPage: {
+    screen: FunctionPage,
+    navigationOptions: {
+      headerTitle: '功能'
+    }
+  }
+})
 
 const BottomTabNavigator = createBottomTabNavigator(
   {
@@ -77,11 +99,37 @@ const BottomTabNavigator = createBottomTabNavigator(
           />
         )
       }
-    }
+    },
+    FrameStack: {
+      screen: FrameStack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: '架构',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={'ios-sunny'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      })
+    },
+    FunctionStack: {
+      screen: FunctionStack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: '功能',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={'ios-funnel'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      })
+    },
   },
   {
     initialRouteName: 'LayoutStack',
-    order: ['LayoutStack','AnimationStack','NetworkStack'],
+    order: ['LayoutStack','AnimationStack','NetworkStack','FrameStack','FunctionStack'],
     tabBarOptions: {
       activeTintColor: 'red', //活动选项卡的标签和图标颜色
       activeBackgroundColor: 'white', //活动选项卡的背景色
@@ -95,11 +143,10 @@ const BottomTabNavigator = createBottomTabNavigator(
     },
   }
 )
-// const AppContainner = createAppContainer(StackNavigator); //顶部导航
+
 const AppContainner = createAppContainer(BottomTabNavigator);
 
 export default class App extends Component {
-
   render() {
     return (
       <AppContainner/>

@@ -92377,11 +92377,19 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _reactNavigation = _$$_REQUIRE(_dependencyMap[10], "react-navigation");
 
-  var _layoutPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "../layout/layoutPage"));
+  var _Ionicons = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "react-native-vector-icons/Ionicons"));
 
-  var _animationPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "../animation/animationPage"));
+  var _layoutPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "../layout/layoutPage"));
 
-  var _networkPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "../network/networkPage"));
+  var _layoutDetailPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "../layout/layoutDetailPage"));
+
+  var _animationPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "../animation/animationPage"));
+
+  var _networkPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[15], "../network/networkPage"));
+
+  var _framePage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[16], "../frame/framePage"));
+
+  var _functionPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[17], "../function/functionPage"));
 
   var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/page/base/rootPage.js";
   var _components = {
@@ -92404,36 +92412,164 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   }
 
   var LayoutStack = (0, _reactNavigation.createStackNavigator)({
-    Layout: _layoutPage.default
+    Layout: {
+      screen: _layoutPage.default,
+      navigationOptions: {
+        headerTitle: '布局'
+      }
+    },
+    Detail: _layoutDetailPage.default
   });
   var AnimationStack = (0, _reactNavigation.createStackNavigator)({
-    Animation: _animationPage.default
+    Animation: {
+      screen: _animationPage.default,
+      navigationOptions: {
+        headerTitle: '动画'
+      }
+    }
   });
   var NetworkStack = (0, _reactNavigation.createStackNavigator)({
-    Newwork: _networkPage.default
+    Network: {
+      screen: _networkPage.default,
+      navigationOptions: {
+        headerTitle: '网络'
+      }
+    }
+  });
+  var FrameStack = (0, _reactNavigation.createStackNavigator)({
+    Frame: {
+      screen: _framePage.default,
+      navigationOptions: {
+        headerTitle: '架构'
+      }
+    }
+  });
+  var FunctionStack = (0, _reactNavigation.createStackNavigator)({
+    FunctionPage: {
+      screen: _functionPage.default,
+      navigationOptions: {
+        headerTitle: '功能'
+      }
+    }
   });
   var BottomTabNavigator = (0, _reactNavigation.createBottomTabNavigator)({
     LayoutStack: {
       screen: LayoutStack,
-      navigationOptions: {
-        tabBarLabel: '布局'
+      navigationOptions: function navigationOptions(_ref) {
+        var navigation = _ref.navigation;
+        return {
+          tabBarLabel: '布局',
+          tabBarIcon: function tabBarIcon(_ref2) {
+            var tintColor = _ref2.tintColor,
+                focused = _ref2.focused;
+            return _react.default.createElement(_Ionicons.default, {
+              name: 'ios-home',
+              size: 26,
+              style: {
+                color: tintColor
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 69
+              }
+            });
+          }
+        };
       }
     },
     AnimationStack: {
       screen: AnimationStack,
       navigationOptions: {
-        tabBarLabel: '动画'
+        tabBarLabel: '动画',
+        tabBarIcon: function tabBarIcon(_ref3) {
+          var tintColor = _ref3.tintColor,
+              focused = _ref3.focused;
+          return _react.default.createElement(_Ionicons.default, {
+            name: 'ios-happy',
+            size: 26,
+            style: {
+              color: tintColor
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 82
+            }
+          });
+        }
       }
     },
     NetworkStack: {
       screen: NetworkStack,
       navigationOptions: {
-        tabBarLabel: '网络'
+        tabBarLabel: '网络',
+        tabBarIcon: function tabBarIcon(_ref4) {
+          var tintColor = _ref4.tintColor,
+              focused = _ref4.focused;
+          return _react.default.createElement(_Ionicons.default, {
+            name: 'ios-git-network',
+            size: 26,
+            style: {
+              color: tintColor
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 95
+            }
+          });
+        }
+      }
+    },
+    FrameStack: {
+      screen: FrameStack,
+      navigationOptions: function navigationOptions(_ref5) {
+        var navigation = _ref5.navigation;
+        return {
+          tabBarLabel: '架构',
+          tabBarIcon: function tabBarIcon(_ref6) {
+            var tintColor = _ref6.tintColor,
+                focused = _ref6.focused;
+            return _react.default.createElement(_Ionicons.default, {
+              name: 'ios-sunny',
+              size: 26,
+              style: {
+                color: tintColor
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 108
+              }
+            });
+          }
+        };
+      }
+    },
+    FunctionStack: {
+      screen: FunctionStack,
+      navigationOptions: function navigationOptions(_ref7) {
+        var navigation = _ref7.navigation;
+        return {
+          tabBarLabel: '功能',
+          tabBarIcon: function tabBarIcon(_ref8) {
+            var tintColor = _ref8.tintColor,
+                focused = _ref8.focused;
+            return _react.default.createElement(_Ionicons.default, {
+              name: 'ios-funnel',
+              size: 26,
+              style: {
+                color: tintColor
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 121
+              }
+            });
+          }
+        };
       }
     }
   }, {
     initialRouteName: 'LayoutStack',
-    order: ['LayoutStack', 'AnimationStack', 'NetworkStack'],
+    order: ['LayoutStack', 'AnimationStack', 'NetworkStack', 'FrameStack', 'FunctionStack'],
     tabBarOptions: {
       activeTintColor: 'red',
       activeBackgroundColor: 'white',
@@ -92462,7 +92598,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         return _react.default.createElement(AppContainner, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 152
           }
         });
       }
@@ -92472,7 +92608,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default2 = App;
   exports.default = _default2;
-},568,[1,2,29,30,43,46,49,3,197,10,569,704,705,706],"page/base/rootPage.js");
+},568,[1,2,29,30,43,46,49,3,197,10,569,704,754,759,755,756,758,757],"page/base/rootPage.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   module.exports = {
     get createAppContainer() {
@@ -111733,6 +111869,2527 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
 
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.getImageSource = exports.ToolbarAndroid = exports.TabBarItemIOS = exports.TabBarItem = exports.Button = exports.default = void 0;
+
+  var _createIconSet = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "./lib/create-icon-set"));
+
+  var _Ionicons = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "./glyphmaps/Ionicons.json"));
+
+  var iconSet = (0, _createIconSet.default)(_Ionicons.default, 'Ionicons', 'Ionicons.ttf');
+  var _default = iconSet;
+  exports.default = _default;
+  var Button = iconSet.Button;
+  exports.Button = Button;
+  var TabBarItem = iconSet.TabBarItem;
+  exports.TabBarItem = TabBarItem;
+  var TabBarItemIOS = iconSet.TabBarItemIOS;
+  exports.TabBarItemIOS = TabBarItemIOS;
+  var ToolbarAndroid = iconSet.ToolbarAndroid;
+  exports.ToolbarAndroid = ToolbarAndroid;
+  var getImageSource = iconSet.getImageSource;
+  exports.getImageSource = getImageSource;
+},704,[1,705,753],"node_modules/react-native-vector-icons/Ionicons.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createIconSet;
+  exports.DEFAULT_ICON_COLOR = exports.DEFAULT_ICON_SIZE = exports.NativeIconAPI = void 0;
+
+  var _toConsumableArray2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/toConsumableArray"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
+
+  var _objectWithoutProperties2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/objectWithoutProperties"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[13], "./react-native");
+
+  var _ensureNativeModuleAvailable = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "./ensure-native-module-available"));
+
+  var _iconButton = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[15], "./icon-button"));
+
+  var _tabBarItemIos = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[16], "./tab-bar-item-ios"));
+
+  var _toolbarAndroid = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[17], "./toolbar-android"));
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/node_modules/react-native-vector-icons/lib/create-icon-set.js";
+  var _components = {
+    Icon: {
+      displayName: "Icon",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "node_modules/react-native-vector-icons/lib/create-icon-set.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var NativeIconAPI = _reactNative.NativeModules.RNVectorIconsManager || _reactNative.NativeModules.RNVectorIconsModule;
+  exports.NativeIconAPI = NativeIconAPI;
+  var DEFAULT_ICON_SIZE = 12;
+  exports.DEFAULT_ICON_SIZE = DEFAULT_ICON_SIZE;
+  var DEFAULT_ICON_COLOR = 'black';
+  exports.DEFAULT_ICON_COLOR = DEFAULT_ICON_COLOR;
+
+  function createIconSet(glyphMap, fontFamily, fontFile, fontStyle) {
+    var fontBasename = fontFile ? fontFile.replace(/\.(otf|ttf)$/, '') : fontFamily;
+
+    var fontReference = _reactNative.Platform.select({
+      windows: "/Assets/" + fontFile + "#" + fontFamily,
+      android: fontBasename,
+      web: fontBasename,
+      default: fontFamily
+    });
+
+    var IconNamePropType = _propTypes.default.oneOf(Object.keys(glyphMap));
+
+    var Icon = function (_PureComponent) {
+      (0, _inherits2.default)(Icon, _PureComponent);
+
+      function Icon() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, Icon);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Icon)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.root = null;
+
+        _this.handleRef = function (ref) {
+          _this.root = ref;
+        };
+
+        return _this;
+      }
+
+      (0, _createClass2.default)(Icon, [{
+        key: "setNativeProps",
+        value: function setNativeProps(nativeProps) {
+          if (this.root) {
+            this.root.setNativeProps(nativeProps);
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _this$props = this.props,
+              name = _this$props.name,
+              size = _this$props.size,
+              color = _this$props.color,
+              style = _this$props.style,
+              children = _this$props.children,
+              props = (0, _objectWithoutProperties2.default)(_this$props, ["name", "size", "color", "style", "children"]);
+          var glyph = name ? glyphMap[name] || '?' : '';
+
+          if (typeof glyph === 'number') {
+            glyph = String.fromCharCode(glyph);
+          }
+
+          var styleDefaults = {
+            fontSize: size,
+            color: color
+          };
+          var styleOverrides = {
+            fontFamily: fontReference,
+            fontWeight: 'normal',
+            fontStyle: 'normal'
+          };
+          props.style = [styleDefaults, style, styleOverrides, fontStyle || {}];
+          props.ref = this.handleRef;
+          return _react.default.createElement(_reactNative.Text, (0, _extends2.default)({}, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 92
+            }
+          }), glyph, children);
+        }
+      }]);
+      return Icon;
+    }(_react.PureComponent);
+
+    Icon.propTypes = {
+      allowFontScaling: _propTypes.default.bool,
+      name: IconNamePropType,
+      size: _propTypes.default.number,
+      color: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      children: _propTypes.default.node,
+      style: _propTypes.default.any
+    };
+    Icon.defaultProps = {
+      size: DEFAULT_ICON_SIZE,
+      allowFontScaling: false
+    };
+    Icon = _wrapComponent("Icon")(Icon);
+    var imageSourceCache = {};
+
+    function getImageSource(name) {
+      var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_ICON_SIZE;
+      var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : DEFAULT_ICON_COLOR;
+      (0, _ensureNativeModuleAvailable.default)();
+      var glyph = glyphMap[name] || '?';
+
+      if (typeof glyph === 'number') {
+        glyph = String.fromCharCode(glyph);
+      }
+
+      var processedColor = (0, _reactNative.processColor)(color);
+      var cacheKey = glyph + ":" + size + ":" + processedColor;
+
+      var scale = _reactNative.PixelRatio.get();
+
+      return new Promise(function (resolve, reject) {
+        var cached = imageSourceCache[cacheKey];
+
+        if (typeof cached !== 'undefined') {
+          if (!cached || cached instanceof Error) {
+            reject(cached);
+          } else {
+            resolve({
+              uri: cached,
+              scale: scale
+            });
+          }
+        } else {
+          NativeIconAPI.getImageForFont(fontReference, glyph, size, processedColor, function (err, image) {
+            var error = typeof err === 'string' ? new Error(err) : err;
+            imageSourceCache[cacheKey] = image || error || false;
+
+            if (!error && image) {
+              resolve({
+                uri: image,
+                scale: scale
+              });
+            } else {
+              reject(error);
+            }
+          });
+        }
+      });
+    }
+
+    function loadFont() {
+      var file = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : fontFile;
+
+      if (_reactNative.Platform.OS === 'ios') {
+        (0, _ensureNativeModuleAvailable.default)();
+
+        if (!file) {
+          return Promise.reject(new Error('Unable to load font, because no file was specified. '));
+        }
+
+        return NativeIconAPI.loadFontWithFileName.apply(NativeIconAPI, (0, _toConsumableArray2.default)(file.split('.')));
+      }
+
+      return Promise.resolve();
+    }
+
+    function hasIcon(name) {
+      return Object.prototype.hasOwnProperty.call(glyphMap, name);
+    }
+
+    function getRawGlyphMap() {
+      return glyphMap;
+    }
+
+    function getFontFamily() {
+      return fontReference;
+    }
+
+    Icon.Button = (0, _iconButton.default)(Icon);
+    Icon.TabBarItem = (0, _tabBarItemIos.default)(IconNamePropType, getImageSource);
+    Icon.TabBarItemIOS = Icon.TabBarItem;
+    Icon.ToolbarAndroid = (0, _toolbarAndroid.default)(IconNamePropType, getImageSource);
+    Icon.getImageSource = getImageSource;
+    Icon.loadFont = loadFont;
+    Icon.hasIcon = hasIcon;
+    Icon.getRawGlyphMap = getRawGlyphMap;
+    Icon.getFontFamily = getFontFamily;
+    return Icon;
+  }
+},705,[1,2,25,6,17,29,30,43,46,49,3,197,68,706,707,708,750,752],"node_modules/react-native-vector-icons/lib/create-icon-set.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[0], "react-native");
+
+  Object.keys(_reactNative).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _reactNative[key];
+      }
+    });
+  });
+},706,[10],"node_modules/react-native-vector-icons/lib/react-native.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = ensureNativeModuleAvailable;
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[0], "./react-native");
+
+  var NativeIconAPI = _reactNative.NativeModules.RNVectorIconsManager || _reactNative.NativeModules.RNVectorIconsModule;
+
+  function ensureNativeModuleAvailable() {
+    if (!NativeIconAPI) {
+      if (_reactNative.Platform.OS === 'android') {
+        throw new Error('RNVectorIconsModule not available, did you properly integrate the module? Try running `react-native link react-native-vector-icons` and recompiling.');
+      }
+
+      throw new Error('RNVectorIconsManager not available, did you add the library to your project and link with libRNVectorIcons.a? Try running `react-native link react-native-vector-icons` and recompiling.');
+    }
+  }
+},707,[706],"node_modules/react-native-vector-icons/lib/ensure-native-module-available.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createIconButtonComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _objectWithoutProperties2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/objectWithoutProperties"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isString = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "lodash/isString"));
+
+  var _omit = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/omit"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[15], "./react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/node_modules/react-native-vector-icons/lib/icon-button.js";
+  var _components = {
+    IconButton: {
+      displayName: "IconButton",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "node_modules/react-native-vector-icons/lib/icon-button.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      padding: 8
+    },
+    touchable: {
+      overflow: 'hidden'
+    },
+    icon: {
+      marginRight: 10
+    },
+    text: {
+      fontWeight: '600',
+      backgroundColor: 'transparent'
+    }
+  });
+
+  var IOS7_BLUE = '#007AFF';
+  var TEXT_PROP_NAMES = ['ellipsizeMode', 'numberOfLines', 'textBreakStrategy', 'selectable', 'suppressHighlighting', 'allowFontScaling', 'adjustsFontSizeToFit', 'minimumFontScale'];
+  var TOUCHABLE_PROP_NAMES = ['accessible', 'accessibilityLabel', 'accessibilityHint', 'accessibilityComponentType', 'accessibilityRole', 'accessibilityStates', 'accessibilityTraits', 'onFocus', 'onBlur', 'disabled', 'onPress', 'onPressIn', 'onPressOut', 'onLayout', 'onLongPress', 'nativeID', 'testID', 'delayPressIn', 'delayPressOut', 'delayLongPress', 'activeOpacity', 'underlayColor', 'selectionColor', 'onShowUnderlay', 'onHideUnderlay', 'hasTVPreferredFocus', 'tvParallaxProperties'];
+
+  function createIconButtonComponent(Icon) {
+    var _class, _temp;
+
+    return _wrapComponent("IconButton")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(IconButton, _PureComponent);
+
+      function IconButton() {
+        (0, _classCallCheck2.default)(this, IconButton);
+        return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(IconButton).apply(this, arguments));
+      }
+
+      (0, _createClass2.default)(IconButton, [{
+        key: "render",
+        value: function render() {
+          var _this$props = this.props,
+              style = _this$props.style,
+              iconStyle = _this$props.iconStyle,
+              children = _this$props.children,
+              restProps = (0, _objectWithoutProperties2.default)(_this$props, ["style", "iconStyle", "children"]);
+          var iconProps = (0, _pick.default)(restProps, TEXT_PROP_NAMES, 'style', 'name', 'size', 'color');
+          var touchableProps = (0, _pick.default)(restProps, TOUCHABLE_PROP_NAMES);
+          var props = (0, _omit.default)(restProps, Object.keys(iconProps), Object.keys(touchableProps), 'iconStyle', 'borderRadius', 'backgroundColor');
+          iconProps.style = iconStyle ? [styles.icon, iconStyle] : styles.icon;
+          var colorStyle = (0, _pick.default)(this.props, 'color');
+          var blockStyle = (0, _pick.default)(this.props, 'backgroundColor', 'borderRadius');
+          return _react.default.createElement(_reactNative.TouchableHighlight, (0, _extends2.default)({
+            style: [styles.touchable, blockStyle]
+          }, touchableProps, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 118
+            }
+          }), _react.default.createElement(_reactNative.View, (0, _extends2.default)({
+            style: [styles.container, blockStyle, style]
+          }, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 122
+            }
+          }), _react.default.createElement(Icon, (0, _extends2.default)({}, iconProps, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 123
+            }
+          })), (0, _isString.default)(children) ? _react.default.createElement(_reactNative.Text, {
+            style: [styles.text, colorStyle],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 125
+            }
+          }, children) : children));
+        }
+      }]);
+      return IconButton;
+    }(_react.PureComponent), _class.propTypes = {
+      backgroundColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      borderRadius: _propTypes.default.number,
+      color: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      size: _propTypes.default.number,
+      iconStyle: _propTypes.default.any,
+      style: _propTypes.default.any,
+      children: _propTypes.default.node
+    }, _class.defaultProps = {
+      backgroundColor: IOS7_BLUE,
+      borderRadius: 5,
+      color: 'white',
+      size: 20
+    }, _temp));
+  }
+},708,[1,2,6,17,29,30,43,46,49,3,197,709,710,746,68,706],"node_modules/react-native-vector-icons/lib/icon-button.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetTag = _$$_REQUIRE(_dependencyMap[0], "./_baseGetTag"),
+      isArray = _$$_REQUIRE(_dependencyMap[1], "./isArray"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[2], "./isObjectLike");
+
+  var stringTag = '[object String]';
+
+  function isString(value) {
+    return typeof value == 'string' || !isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
+  }
+
+  module.exports = isString;
+},709,[224,266,275],"node_modules/lodash/isString.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayMap = _$$_REQUIRE(_dependencyMap[0], "./_arrayMap"),
+      baseClone = _$$_REQUIRE(_dependencyMap[1], "./_baseClone"),
+      baseUnset = _$$_REQUIRE(_dependencyMap[2], "./_baseUnset"),
+      castPath = _$$_REQUIRE(_dependencyMap[3], "./_castPath"),
+      copyObject = _$$_REQUIRE(_dependencyMap[4], "./_copyObject"),
+      customOmitClone = _$$_REQUIRE(_dependencyMap[5], "./_customOmitClone"),
+      flatRest = _$$_REQUIRE(_dependencyMap[6], "./_flatRest"),
+      getAllKeysIn = _$$_REQUIRE(_dependencyMap[7], "./_getAllKeysIn");
+
+  var CLONE_DEEP_FLAG = 1,
+      CLONE_FLAT_FLAG = 2,
+      CLONE_SYMBOLS_FLAG = 4;
+  var omit = flatRest(function (object, paths) {
+    var result = {};
+
+    if (object == null) {
+      return result;
+    }
+
+    var isDeep = false;
+    paths = arrayMap(paths, function (path) {
+      path = castPath(path, object);
+      isDeep || (isDeep = path.length > 1);
+      return path;
+    });
+    copyObject(object, getAllKeysIn(object), result);
+
+    if (isDeep) {
+      result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
+    }
+
+    var length = paths.length;
+
+    while (length--) {
+      baseUnset(result, paths[length]);
+    }
+
+    return result;
+  });
+  module.exports = omit;
+},710,[308,711,738,300,327,742,744,724],"node_modules/lodash/omit.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Stack = _$$_REQUIRE(_dependencyMap[0], "./_Stack"),
+      arrayEach = _$$_REQUIRE(_dependencyMap[1], "./_arrayEach"),
+      assignValue = _$$_REQUIRE(_dependencyMap[2], "./_assignValue"),
+      baseAssign = _$$_REQUIRE(_dependencyMap[3], "./_baseAssign"),
+      baseAssignIn = _$$_REQUIRE(_dependencyMap[4], "./_baseAssignIn"),
+      cloneBuffer = _$$_REQUIRE(_dependencyMap[5], "./_cloneBuffer"),
+      copyArray = _$$_REQUIRE(_dependencyMap[6], "./_copyArray"),
+      copySymbols = _$$_REQUIRE(_dependencyMap[7], "./_copySymbols"),
+      copySymbolsIn = _$$_REQUIRE(_dependencyMap[8], "./_copySymbolsIn"),
+      getAllKeys = _$$_REQUIRE(_dependencyMap[9], "./_getAllKeys"),
+      getAllKeysIn = _$$_REQUIRE(_dependencyMap[10], "./_getAllKeysIn"),
+      getTag = _$$_REQUIRE(_dependencyMap[11], "./_getTag"),
+      initCloneArray = _$$_REQUIRE(_dependencyMap[12], "./_initCloneArray"),
+      initCloneByTag = _$$_REQUIRE(_dependencyMap[13], "./_initCloneByTag"),
+      initCloneObject = _$$_REQUIRE(_dependencyMap[14], "./_initCloneObject"),
+      isArray = _$$_REQUIRE(_dependencyMap[15], "./isArray"),
+      isBuffer = _$$_REQUIRE(_dependencyMap[16], "./isBuffer"),
+      isMap = _$$_REQUIRE(_dependencyMap[17], "./isMap"),
+      isObject = _$$_REQUIRE(_dependencyMap[18], "./isObject"),
+      isSet = _$$_REQUIRE(_dependencyMap[19], "./isSet"),
+      keys = _$$_REQUIRE(_dependencyMap[20], "./keys");
+
+  var CLONE_DEEP_FLAG = 1,
+      CLONE_FLAT_FLAG = 2,
+      CLONE_SYMBOLS_FLAG = 4;
+  var argsTag = '[object Arguments]',
+      arrayTag = '[object Array]',
+      boolTag = '[object Boolean]',
+      dateTag = '[object Date]',
+      errorTag = '[object Error]',
+      funcTag = '[object Function]',
+      genTag = '[object GeneratorFunction]',
+      mapTag = '[object Map]',
+      numberTag = '[object Number]',
+      objectTag = '[object Object]',
+      regexpTag = '[object RegExp]',
+      setTag = '[object Set]',
+      stringTag = '[object String]',
+      symbolTag = '[object Symbol]',
+      weakMapTag = '[object WeakMap]';
+  var arrayBufferTag = '[object ArrayBuffer]',
+      dataViewTag = '[object DataView]',
+      float32Tag = '[object Float32Array]',
+      float64Tag = '[object Float64Array]',
+      int8Tag = '[object Int8Array]',
+      int16Tag = '[object Int16Array]',
+      int32Tag = '[object Int32Array]',
+      uint8Tag = '[object Uint8Array]',
+      uint8ClampedTag = '[object Uint8ClampedArray]',
+      uint16Tag = '[object Uint16Array]',
+      uint32Tag = '[object Uint32Array]';
+  var cloneableTags = {};
+  cloneableTags[argsTag] = cloneableTags[arrayTag] = cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] = cloneableTags[boolTag] = cloneableTags[dateTag] = cloneableTags[float32Tag] = cloneableTags[float64Tag] = cloneableTags[int8Tag] = cloneableTags[int16Tag] = cloneableTags[int32Tag] = cloneableTags[mapTag] = cloneableTags[numberTag] = cloneableTags[objectTag] = cloneableTags[regexpTag] = cloneableTags[setTag] = cloneableTags[stringTag] = cloneableTags[symbolTag] = cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] = cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+  cloneableTags[errorTag] = cloneableTags[funcTag] = cloneableTags[weakMapTag] = false;
+
+  function baseClone(value, bitmask, customizer, key, object, stack) {
+    var result,
+        isDeep = bitmask & CLONE_DEEP_FLAG,
+        isFlat = bitmask & CLONE_FLAT_FLAG,
+        isFull = bitmask & CLONE_SYMBOLS_FLAG;
+
+    if (customizer) {
+      result = object ? customizer(value, key, object, stack) : customizer(value);
+    }
+
+    if (result !== undefined) {
+      return result;
+    }
+
+    if (!isObject(value)) {
+      return value;
+    }
+
+    var isArr = isArray(value);
+
+    if (isArr) {
+      result = initCloneArray(value);
+
+      if (!isDeep) {
+        return copyArray(value, result);
+      }
+    } else {
+      var tag = getTag(value),
+          isFunc = tag == funcTag || tag == genTag;
+
+      if (isBuffer(value)) {
+        return cloneBuffer(value, isDeep);
+      }
+
+      if (tag == objectTag || tag == argsTag || isFunc && !object) {
+        result = isFlat || isFunc ? {} : initCloneObject(value);
+
+        if (!isDeep) {
+          return isFlat ? copySymbolsIn(value, baseAssignIn(result, value)) : copySymbols(value, baseAssign(result, value));
+        }
+      } else {
+        if (!cloneableTags[tag]) {
+          return object ? value : {};
+        }
+
+        result = initCloneByTag(value, tag, isDeep);
+      }
+    }
+
+    stack || (stack = new Stack());
+    var stacked = stack.get(value);
+
+    if (stacked) {
+      return stacked;
+    }
+
+    stack.set(value, result);
+
+    if (isSet(value)) {
+      value.forEach(function (subValue) {
+        result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+      });
+    } else if (isMap(value)) {
+      value.forEach(function (subValue, key) {
+        result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+      });
+    }
+
+    var keysFunc = isFull ? isFlat ? getAllKeysIn : getAllKeys : isFlat ? keysIn : keys;
+    var props = isArr ? undefined : keysFunc(value);
+    arrayEach(props || value, function (subValue, key) {
+      if (props) {
+        key = subValue;
+        subValue = value[key];
+      }
+
+      assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
+    });
+    return result;
+  }
+
+  module.exports = baseClone;
+},711,[206,712,324,713,714,718,719,720,721,263,724,289,725,726,732,266,276,734,230,736,270],"node_modules/lodash/_baseClone.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function arrayEach(array, iteratee) {
+    var index = -1,
+        length = array == null ? 0 : array.length;
+
+    while (++index < length) {
+      if (iteratee(array[index], index, array) === false) {
+        break;
+      }
+    }
+
+    return array;
+  }
+
+  module.exports = arrayEach;
+},712,[],"node_modules/lodash/_arrayEach.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      keys = _$$_REQUIRE(_dependencyMap[1], "./keys");
+
+  function baseAssign(object, source) {
+    return object && copyObject(source, keys(source), object);
+  }
+
+  module.exports = baseAssign;
+},713,[327,270],"node_modules/lodash/_baseAssign.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      keysIn = _$$_REQUIRE(_dependencyMap[1], "./keysIn");
+
+  function baseAssignIn(object, source) {
+    return object && copyObject(source, keysIn(source), object);
+  }
+
+  module.exports = baseAssignIn;
+},714,[327,715],"node_modules/lodash/_baseAssignIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayLikeKeys = _$$_REQUIRE(_dependencyMap[0], "./_arrayLikeKeys"),
+      baseKeysIn = _$$_REQUIRE(_dependencyMap[1], "./_baseKeysIn"),
+      isArrayLike = _$$_REQUIRE(_dependencyMap[2], "./isArrayLike");
+
+  function keysIn(object) {
+    return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+  }
+
+  module.exports = keysIn;
+},715,[271,716,288],"node_modules/lodash/keysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isObject = _$$_REQUIRE(_dependencyMap[0], "./isObject"),
+      isPrototype = _$$_REQUIRE(_dependencyMap[1], "./_isPrototype"),
+      nativeKeysIn = _$$_REQUIRE(_dependencyMap[2], "./_nativeKeysIn");
+
+  var objectProto = Object.prototype;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+
+  function baseKeysIn(object) {
+    if (!isObject(object)) {
+      return nativeKeysIn(object);
+    }
+
+    var isProto = isPrototype(object),
+        result = [];
+
+    for (var key in object) {
+      if (!(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
+        result.push(key);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = baseKeysIn;
+},716,[230,285,717],"node_modules/lodash/_baseKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function nativeKeysIn(object) {
+    var result = [];
+
+    if (object != null) {
+      for (var key in Object(object)) {
+        result.push(key);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = nativeKeysIn;
+},717,[],"node_modules/lodash/_nativeKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var root = _$$_REQUIRE(_dependencyMap[0], "./_root");
+
+  var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+  var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+  var moduleExports = freeModule && freeModule.exports === freeExports;
+  var Buffer = moduleExports ? root.Buffer : undefined,
+      allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
+
+  function cloneBuffer(buffer, isDeep) {
+    if (isDeep) {
+      return buffer.slice();
+    }
+
+    var length = buffer.length,
+        result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+    buffer.copy(result);
+    return result;
+  }
+
+  module.exports = cloneBuffer;
+},718,[226],"node_modules/lodash/_cloneBuffer.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function copyArray(source, array) {
+    var index = -1,
+        length = source.length;
+    array || (array = Array(length));
+
+    while (++index < length) {
+      array[index] = source[index];
+    }
+
+    return array;
+  }
+
+  module.exports = copyArray;
+},719,[],"node_modules/lodash/_copyArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      getSymbols = _$$_REQUIRE(_dependencyMap[1], "./_getSymbols");
+
+  function copySymbols(source, object) {
+    return copyObject(source, getSymbols(source), object);
+  }
+
+  module.exports = copySymbols;
+},720,[327,267],"node_modules/lodash/_copySymbols.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      getSymbolsIn = _$$_REQUIRE(_dependencyMap[1], "./_getSymbolsIn");
+
+  function copySymbolsIn(source, object) {
+    return copyObject(source, getSymbolsIn(source), object);
+  }
+
+  module.exports = copySymbolsIn;
+},721,[327,722],"node_modules/lodash/_copySymbolsIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayPush = _$$_REQUIRE(_dependencyMap[0], "./_arrayPush"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      getSymbols = _$$_REQUIRE(_dependencyMap[2], "./_getSymbols"),
+      stubArray = _$$_REQUIRE(_dependencyMap[3], "./stubArray");
+
+  var nativeGetSymbols = Object.getOwnPropertySymbols;
+  var getSymbolsIn = !nativeGetSymbols ? stubArray : function (object) {
+    var result = [];
+
+    while (object) {
+      arrayPush(result, getSymbols(object));
+      object = getPrototype(object);
+    }
+
+    return result;
+  };
+  module.exports = getSymbolsIn;
+},722,[265,723,267,269],"node_modules/lodash/_getSymbolsIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var overArg = _$$_REQUIRE(_dependencyMap[0], "./_overArg");
+
+  var getPrototype = overArg(Object.getPrototypeOf, Object);
+  module.exports = getPrototype;
+},723,[287],"node_modules/lodash/_getPrototype.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetAllKeys = _$$_REQUIRE(_dependencyMap[0], "./_baseGetAllKeys"),
+      getSymbolsIn = _$$_REQUIRE(_dependencyMap[1], "./_getSymbolsIn"),
+      keysIn = _$$_REQUIRE(_dependencyMap[2], "./keysIn");
+
+  function getAllKeysIn(object) {
+    return baseGetAllKeys(object, keysIn, getSymbolsIn);
+  }
+
+  module.exports = getAllKeysIn;
+},724,[264,722,715],"node_modules/lodash/_getAllKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var objectProto = Object.prototype;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+
+  function initCloneArray(array) {
+    var length = array.length,
+        result = new array.constructor(length);
+
+    if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
+      result.index = array.index;
+      result.input = array.input;
+    }
+
+    return result;
+  }
+
+  module.exports = initCloneArray;
+},725,[],"node_modules/lodash/_initCloneArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer"),
+      cloneDataView = _$$_REQUIRE(_dependencyMap[1], "./_cloneDataView"),
+      cloneRegExp = _$$_REQUIRE(_dependencyMap[2], "./_cloneRegExp"),
+      cloneSymbol = _$$_REQUIRE(_dependencyMap[3], "./_cloneSymbol"),
+      cloneTypedArray = _$$_REQUIRE(_dependencyMap[4], "./_cloneTypedArray");
+
+  var boolTag = '[object Boolean]',
+      dateTag = '[object Date]',
+      mapTag = '[object Map]',
+      numberTag = '[object Number]',
+      regexpTag = '[object RegExp]',
+      setTag = '[object Set]',
+      stringTag = '[object String]',
+      symbolTag = '[object Symbol]';
+  var arrayBufferTag = '[object ArrayBuffer]',
+      dataViewTag = '[object DataView]',
+      float32Tag = '[object Float32Array]',
+      float64Tag = '[object Float64Array]',
+      int8Tag = '[object Int8Array]',
+      int16Tag = '[object Int16Array]',
+      int32Tag = '[object Int32Array]',
+      uint8Tag = '[object Uint8Array]',
+      uint8ClampedTag = '[object Uint8ClampedArray]',
+      uint16Tag = '[object Uint16Array]',
+      uint32Tag = '[object Uint32Array]';
+
+  function initCloneByTag(object, tag, isDeep) {
+    var Ctor = object.constructor;
+
+    switch (tag) {
+      case arrayBufferTag:
+        return cloneArrayBuffer(object);
+
+      case boolTag:
+      case dateTag:
+        return new Ctor(+object);
+
+      case dataViewTag:
+        return cloneDataView(object, isDeep);
+
+      case float32Tag:
+      case float64Tag:
+      case int8Tag:
+      case int16Tag:
+      case int32Tag:
+      case uint8Tag:
+      case uint8ClampedTag:
+      case uint16Tag:
+      case uint32Tag:
+        return cloneTypedArray(object, isDeep);
+
+      case mapTag:
+        return new Ctor();
+
+      case numberTag:
+      case stringTag:
+        return new Ctor(object);
+
+      case regexpTag:
+        return cloneRegExp(object);
+
+      case setTag:
+        return new Ctor();
+
+      case symbolTag:
+        return cloneSymbol(object);
+    }
+  }
+
+  module.exports = initCloneByTag;
+},726,[727,728,729,730,731],"node_modules/lodash/_initCloneByTag.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Uint8Array = _$$_REQUIRE(_dependencyMap[0], "./_Uint8Array");
+
+  function cloneArrayBuffer(arrayBuffer) {
+    var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
+    new Uint8Array(result).set(new Uint8Array(arrayBuffer));
+    return result;
+  }
+
+  module.exports = cloneArrayBuffer;
+},727,[259],"node_modules/lodash/_cloneArrayBuffer.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer");
+
+  function cloneDataView(dataView, isDeep) {
+    var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
+    return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+  }
+
+  module.exports = cloneDataView;
+},728,[727],"node_modules/lodash/_cloneDataView.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var reFlags = /\w*$/;
+
+  function cloneRegExp(regexp) {
+    var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+    result.lastIndex = regexp.lastIndex;
+    return result;
+  }
+
+  module.exports = cloneRegExp;
+},729,[],"node_modules/lodash/_cloneRegExp.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Symbol = _$$_REQUIRE(_dependencyMap[0], "./_Symbol");
+
+  var symbolProto = Symbol ? typeof Symbol === "function" ? Symbol.prototype : "@@prototype" : undefined,
+      symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+
+  function cloneSymbol(symbol) {
+    return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
+  }
+
+  module.exports = cloneSymbol;
+},730,[225],"node_modules/lodash/_cloneSymbol.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer");
+
+  function cloneTypedArray(typedArray, isDeep) {
+    var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
+    return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+  }
+
+  module.exports = cloneTypedArray;
+},731,[727],"node_modules/lodash/_cloneTypedArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseCreate = _$$_REQUIRE(_dependencyMap[0], "./_baseCreate"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      isPrototype = _$$_REQUIRE(_dependencyMap[2], "./_isPrototype");
+
+  function initCloneObject(object) {
+    return typeof object.constructor == 'function' && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
+  }
+
+  module.exports = initCloneObject;
+},732,[733,723,285],"node_modules/lodash/_initCloneObject.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isObject = _$$_REQUIRE(_dependencyMap[0], "./isObject");
+
+  var objectCreate = Object.create;
+
+  var baseCreate = function () {
+    function object() {}
+
+    return function (proto) {
+      if (!isObject(proto)) {
+        return {};
+      }
+
+      if (objectCreate) {
+        return objectCreate(proto);
+      }
+
+      object.prototype = proto;
+      var result = new object();
+      object.prototype = undefined;
+      return result;
+    };
+  }();
+
+  module.exports = baseCreate;
+},733,[230],"node_modules/lodash/_baseCreate.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsMap = _$$_REQUIRE(_dependencyMap[0], "./_baseIsMap"),
+      baseUnary = _$$_REQUIRE(_dependencyMap[1], "./_baseUnary"),
+      nodeUtil = _$$_REQUIRE(_dependencyMap[2], "./_nodeUtil");
+
+  var nodeIsMap = nodeUtil && nodeUtil.isMap;
+  var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
+  module.exports = isMap;
+},734,[735,282,283],"node_modules/lodash/isMap.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var getTag = _$$_REQUIRE(_dependencyMap[0], "./_getTag"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[1], "./isObjectLike");
+
+  var mapTag = '[object Map]';
+
+  function baseIsMap(value) {
+    return isObjectLike(value) && getTag(value) == mapTag;
+  }
+
+  module.exports = baseIsMap;
+},735,[289,275],"node_modules/lodash/_baseIsMap.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsSet = _$$_REQUIRE(_dependencyMap[0], "./_baseIsSet"),
+      baseUnary = _$$_REQUIRE(_dependencyMap[1], "./_baseUnary"),
+      nodeUtil = _$$_REQUIRE(_dependencyMap[2], "./_nodeUtil");
+
+  var nodeIsSet = nodeUtil && nodeUtil.isSet;
+  var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
+  module.exports = isSet;
+},736,[737,282,283],"node_modules/lodash/isSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var getTag = _$$_REQUIRE(_dependencyMap[0], "./_getTag"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[1], "./isObjectLike");
+
+  var setTag = '[object Set]';
+
+  function baseIsSet(value) {
+    return isObjectLike(value) && getTag(value) == setTag;
+  }
+
+  module.exports = baseIsSet;
+},737,[289,275],"node_modules/lodash/_baseIsSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var castPath = _$$_REQUIRE(_dependencyMap[0], "./_castPath"),
+      last = _$$_REQUIRE(_dependencyMap[1], "./last"),
+      parent = _$$_REQUIRE(_dependencyMap[2], "./_parent"),
+      toKey = _$$_REQUIRE(_dependencyMap[3], "./_toKey");
+
+  function baseUnset(object, path) {
+    path = castPath(path, object);
+    object = parent(object, path);
+    return object == null || delete object[toKey(last(path))];
+  }
+
+  module.exports = baseUnset;
+},738,[300,739,740,309],"node_modules/lodash/_baseUnset.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function last(array) {
+    var length = array == null ? 0 : array.length;
+    return length ? array[length - 1] : undefined;
+  }
+
+  module.exports = last;
+},739,[],"node_modules/lodash/last.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGet = _$$_REQUIRE(_dependencyMap[0], "./_baseGet"),
+      baseSlice = _$$_REQUIRE(_dependencyMap[1], "./_baseSlice");
+
+  function parent(object, path) {
+    return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1));
+  }
+
+  module.exports = parent;
+},740,[299,741],"node_modules/lodash/_parent.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function baseSlice(array, start, end) {
+    var index = -1,
+        length = array.length;
+
+    if (start < 0) {
+      start = -start > length ? 0 : length + start;
+    }
+
+    end = end > length ? length : end;
+
+    if (end < 0) {
+      end += length;
+    }
+
+    length = start > end ? 0 : end - start >>> 0;
+    start >>>= 0;
+    var result = Array(length);
+
+    while (++index < length) {
+      result[index] = array[index + start];
+    }
+
+    return result;
+  }
+
+  module.exports = baseSlice;
+},741,[],"node_modules/lodash/_baseSlice.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isPlainObject = _$$_REQUIRE(_dependencyMap[0], "./isPlainObject");
+
+  function customOmitClone(value) {
+    return isPlainObject(value) ? undefined : value;
+  }
+
+  module.exports = customOmitClone;
+},742,[743],"node_modules/lodash/_customOmitClone.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetTag = _$$_REQUIRE(_dependencyMap[0], "./_baseGetTag"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[2], "./isObjectLike");
+
+  var objectTag = '[object Object]';
+  var funcProto = Function.prototype,
+      objectProto = Object.prototype;
+  var funcToString = funcProto.toString;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+  var objectCtorString = funcToString.call(Object);
+
+  function isPlainObject(value) {
+    if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+      return false;
+    }
+
+    var proto = getPrototype(value);
+
+    if (proto === null) {
+      return true;
+    }
+
+    var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+    return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+  }
+
+  module.exports = isPlainObject;
+},743,[224,723,275],"node_modules/lodash/isPlainObject.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var flatten = _$$_REQUIRE(_dependencyMap[0], "./flatten"),
+      overRest = _$$_REQUIRE(_dependencyMap[1], "./_overRest"),
+      setToString = _$$_REQUIRE(_dependencyMap[2], "./_setToString");
+
+  function flatRest(func) {
+    return setToString(overRest(func, undefined, flatten), func + '');
+  }
+
+  module.exports = flatRest;
+},744,[745,330,332],"node_modules/lodash/_flatRest.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseFlatten = _$$_REQUIRE(_dependencyMap[0], "./_baseFlatten");
+
+  function flatten(array) {
+    var length = array == null ? 0 : array.length;
+    return length ? baseFlatten(array, 1) : [];
+  }
+
+  module.exports = flatten;
+},745,[344],"node_modules/lodash/flatten.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var basePick = _$$_REQUIRE(_dependencyMap[0], "./_basePick"),
+      flatRest = _$$_REQUIRE(_dependencyMap[1], "./_flatRest");
+
+  var pick = flatRest(function (object, paths) {
+    return object == null ? {} : basePick(object, paths);
+  });
+  module.exports = pick;
+},746,[747,744],"node_modules/lodash/pick.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var basePickBy = _$$_REQUIRE(_dependencyMap[0], "./_basePickBy"),
+      hasIn = _$$_REQUIRE(_dependencyMap[1], "./hasIn");
+
+  function basePick(object, paths) {
+    return basePickBy(object, paths, function (value, path) {
+      return hasIn(object, path);
+    });
+  }
+
+  module.exports = basePick;
+},747,[748,310],"node_modules/lodash/_basePick.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGet = _$$_REQUIRE(_dependencyMap[0], "./_baseGet"),
+      baseSet = _$$_REQUIRE(_dependencyMap[1], "./_baseSet"),
+      castPath = _$$_REQUIRE(_dependencyMap[2], "./_castPath");
+
+  function basePickBy(object, paths, predicate) {
+    var index = -1,
+        length = paths.length,
+        result = {};
+
+    while (++index < length) {
+      var path = paths[index],
+          value = baseGet(object, path);
+
+      if (predicate(value, path)) {
+        baseSet(result, castPath(path, object), value);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = basePickBy;
+},748,[299,749,300],"node_modules/lodash/_basePickBy.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var assignValue = _$$_REQUIRE(_dependencyMap[0], "./_assignValue"),
+      castPath = _$$_REQUIRE(_dependencyMap[1], "./_castPath"),
+      isIndex = _$$_REQUIRE(_dependencyMap[2], "./_isIndex"),
+      isObject = _$$_REQUIRE(_dependencyMap[3], "./isObject"),
+      toKey = _$$_REQUIRE(_dependencyMap[4], "./_toKey");
+
+  function baseSet(object, path, value, customizer) {
+    if (!isObject(object)) {
+      return object;
+    }
+
+    path = castPath(path, object);
+    var index = -1,
+        length = path.length,
+        lastIndex = length - 1,
+        nested = object;
+
+    while (nested != null && ++index < length) {
+      var key = toKey(path[index]),
+          newValue = value;
+
+      if (index != lastIndex) {
+        var objValue = nested[key];
+        newValue = customizer ? customizer(objValue, key, nested) : undefined;
+
+        if (newValue === undefined) {
+          newValue = isObject(objValue) ? objValue : isIndex(path[index + 1]) ? [] : {};
+        }
+      }
+
+      assignValue(nested, key, newValue);
+      nested = nested[key];
+    }
+
+    return object;
+  }
+
+  module.exports = baseSet;
+},749,[324,300,278,230,309],"node_modules/lodash/_baseSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createTabBarItemIOSComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/regenerator"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isEqual = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "lodash/isEqual"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[14], "./react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js";
+  var _components = {
+    TabBarItemIOS: {
+      displayName: "TabBarItemIOS",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var ICON_PROP_NAMES = ['iconName', 'iconSize', 'iconColor'];
+  var SELECTED_ICON_PROP_NAMES = [].concat(ICON_PROP_NAMES, ['selectedIconName', 'selectedIconColor']);
+
+  var arePropsEqual = function arePropsEqual(keys) {
+    return function (prevProps, nextProps) {
+      return (0, _isEqual.default)((0, _pick.default)(prevProps, keys), (0, _pick.default)(nextProps, keys));
+    };
+  };
+
+  var areIconPropsEqual = arePropsEqual(ICON_PROP_NAMES);
+  var areSelectedIconPropsEqual = arePropsEqual(SELECTED_ICON_PROP_NAMES);
+
+  function createTabBarItemIOSComponent(IconNamePropType, getImageSource) {
+    var _class, _temp;
+
+    return _wrapComponent("TabBarItemIOS")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(TabBarItemIOS, _PureComponent);
+
+      function TabBarItemIOS() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, TabBarItemIOS);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(TabBarItemIOS)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.state = {
+          icon: undefined,
+          selectedIcon: undefined
+        };
+        return _this;
+      }
+
+      (0, _createClass2.default)(TabBarItemIOS, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          this.updateIconSource();
+          this.updateSelectedIconSource();
+        }
+      }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate(prevProps) {
+          if (!areIconPropsEqual(prevProps, this.props)) {
+            this.updateIconSource();
+          }
+
+          if (!areSelectedIconPropsEqual(prevProps, this.props)) {
+            this.updateSelectedIconSource();
+          }
+        }
+      }, {
+        key: "updateIconSource",
+        value: function updateIconSource() {
+          var _this$props, iconName, iconSize, iconColor, icon;
+
+          return _regenerator.default.async(function updateIconSource$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _this$props = this.props, iconName = _this$props.iconName, iconSize = _this$props.iconSize, iconColor = _this$props.iconColor;
+
+                  if (!iconName) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return _regenerator.default.awrap(getImageSource(iconName, iconSize, iconColor));
+
+                case 4:
+                  icon = _context.sent;
+                  this.setState({
+                    icon: icon
+                  });
+                  _context.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.icon) {
+                    this.setState({
+                      icon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateSelectedIconSource",
+        value: function updateSelectedIconSource() {
+          var _this$props2, iconName, iconColor, iconSize, selectedIconName, selectedIconColor, selectedIcon;
+
+          return _regenerator.default.async(function updateSelectedIconSource$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _this$props2 = this.props, iconName = _this$props2.iconName, iconColor = _this$props2.iconColor, iconSize = _this$props2.iconSize, selectedIconName = _this$props2.selectedIconName, selectedIconColor = _this$props2.selectedIconColor;
+
+                  if (!(selectedIconName || selectedIconColor)) {
+                    _context2.next = 8;
+                    break;
+                  }
+
+                  _context2.next = 4;
+                  return _regenerator.default.awrap(getImageSource(selectedIconName || iconName, iconSize, selectedIconColor || iconColor));
+
+                case 4:
+                  selectedIcon = _context2.sent;
+                  this.setState({
+                    selectedIcon: selectedIcon
+                  });
+                  _context2.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.selectedIcon) {
+                    this.setState({
+                      selectedIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return _react.default.createElement(_reactNative.TabBarIOS.Item, (0, _extends2.default)({}, this.state, this.props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 93
+            }
+          }));
+        }
+      }]);
+      return TabBarItemIOS;
+    }(_react.PureComponent), _class.propTypes = {
+      iconName: IconNamePropType.isRequired,
+      selectedIconName: IconNamePropType,
+      iconSize: _propTypes.default.number,
+      iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      selectedIconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+    }, _class.defaultProps = {
+      iconSize: 30
+    }, _temp));
+  }
+},750,[1,2,6,108,29,30,43,46,49,3,197,751,746,68,706],"node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsEqual = _$$_REQUIRE(_dependencyMap[0], "./_baseIsEqual");
+
+  function isEqual(value, other) {
+    return baseIsEqual(value, other);
+  }
+
+  module.exports = isEqual;
+},751,[250],"node_modules/lodash/isEqual.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createToolbarAndroidComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _defineProperty2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/defineProperty"));
+
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/regenerator"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isEqual = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/isEqual"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[15], "./react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/node_modules/react-native-vector-icons/lib/toolbar-android.js";
+
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+  var _components = {
+    IconToolbarAndroid: {
+      displayName: "IconToolbarAndroid",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "node_modules/react-native-vector-icons/lib/toolbar-android.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var ICON_PROP_NAMES = ['iconSize', 'iconColor', 'titleColor'];
+  var LOGO_ICON_PROP_NAMES = [].concat(ICON_PROP_NAMES, ['logoName']);
+  var NAV_ICON_PROP_NAMES = [].concat(ICON_PROP_NAMES, ['navIconName']);
+  var OVERFLOW_ICON_PROP_NAMES = [].concat(ICON_PROP_NAMES, ['overflowIconName']);
+  var ACTIONS_PROP_NAMES = [].concat(ICON_PROP_NAMES, ['actions']);
+
+  var arePropsEqual = function arePropsEqual(keys) {
+    return function (prevProps, nextProps) {
+      return (0, _isEqual.default)((0, _pick.default)(prevProps, keys), (0, _pick.default)(nextProps, keys));
+    };
+  };
+
+  var areLogoIconPropsEqual = arePropsEqual(LOGO_ICON_PROP_NAMES);
+  var areNavIconPropsEqual = arePropsEqual(NAV_ICON_PROP_NAMES);
+  var areOverflowIconPropsEqual = arePropsEqual(OVERFLOW_ICON_PROP_NAMES);
+  var areActionPropsEqual = arePropsEqual(ACTIONS_PROP_NAMES);
+
+  function createToolbarAndroidComponent(IconNamePropType, getImageSource) {
+    var _class, _temp;
+
+    return _wrapComponent("IconToolbarAndroid")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(IconToolbarAndroid, _PureComponent);
+
+      function IconToolbarAndroid() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, IconToolbarAndroid);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(IconToolbarAndroid)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.state = {
+          logo: undefined,
+          navIcon: undefined,
+          overflowIcon: undefined,
+          actions: undefined
+        };
+        return _this;
+      }
+
+      (0, _createClass2.default)(IconToolbarAndroid, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          this.updateLogoIconSource();
+          this.updateNavIconSource();
+          this.updateOverflowIconSource();
+          this.updateActionIconSources();
+        }
+      }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate(prevProps) {
+          if (!areLogoIconPropsEqual(prevProps, this.props)) {
+            this.updateLogoIconSource();
+          }
+
+          if (!areNavIconPropsEqual(prevProps, this.props)) {
+            this.updateNavIconSource();
+          }
+
+          if (!areOverflowIconPropsEqual(prevProps, this.props)) {
+            this.updateOverflowIconSource();
+          }
+
+          if (!areActionPropsEqual(prevProps, this.props)) {
+            this.updateActionIconSources();
+          }
+        }
+      }, {
+        key: "updateLogoIconSource",
+        value: function updateLogoIconSource() {
+          var _this$props, logoName, iconSize, iconColor, titleColor, logo;
+
+          return _regenerator.default.async(function updateLogoIconSource$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _this$props = this.props, logoName = _this$props.logoName, iconSize = _this$props.iconSize, iconColor = _this$props.iconColor, titleColor = _this$props.titleColor;
+
+                  if (!logoName) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return _regenerator.default.awrap(getImageSource(logoName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  logo = _context.sent;
+                  this.setState({
+                    logo: logo
+                  });
+                  _context.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.logo) {
+                    this.setState({
+                      logo: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateNavIconSource",
+        value: function updateNavIconSource() {
+          var _this$props2, navIconName, iconSize, iconColor, titleColor, navIcon;
+
+          return _regenerator.default.async(function updateNavIconSource$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _this$props2 = this.props, navIconName = _this$props2.navIconName, iconSize = _this$props2.iconSize, iconColor = _this$props2.iconColor, titleColor = _this$props2.titleColor;
+
+                  if (!navIconName) {
+                    _context2.next = 8;
+                    break;
+                  }
+
+                  _context2.next = 4;
+                  return _regenerator.default.awrap(getImageSource(navIconName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  navIcon = _context2.sent;
+                  this.setState({
+                    navIcon: navIcon
+                  });
+                  _context2.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.navIcon) {
+                    this.setState({
+                      navIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateOverflowIconSource",
+        value: function updateOverflowIconSource() {
+          var _this$props3, overflowIconName, iconSize, iconColor, titleColor, overflowIcon;
+
+          return _regenerator.default.async(function updateOverflowIconSource$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  _this$props3 = this.props, overflowIconName = _this$props3.overflowIconName, iconSize = _this$props3.iconSize, iconColor = _this$props3.iconColor, titleColor = _this$props3.titleColor;
+
+                  if (!overflowIconName) {
+                    _context3.next = 8;
+                    break;
+                  }
+
+                  _context3.next = 4;
+                  return _regenerator.default.awrap(getImageSource(overflowIconName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  overflowIcon = _context3.sent;
+                  this.setState({
+                    overflowIcon: overflowIcon
+                  });
+                  _context3.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.overflowIcon) {
+                    this.setState({
+                      overflowIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateActionIconSources",
+        value: function updateActionIconSources() {
+          var _this$props4, actions, iconSize, iconColor, titleColor, updatedActions;
+
+          return _regenerator.default.async(function updateActionIconSources$(_context4) {
+            while (1) {
+              switch (_context4.prev = _context4.next) {
+                case 0:
+                  _this$props4 = this.props, actions = _this$props4.actions, iconSize = _this$props4.iconSize, iconColor = _this$props4.iconColor, titleColor = _this$props4.titleColor;
+                  _context4.next = 3;
+                  return _regenerator.default.awrap(Promise.all((actions || []).map(function (action) {
+                    if (action.iconName) {
+                      return getImageSource(action.iconName, action.iconSize || iconSize, action.iconColor || iconColor || titleColor).then(function (icon) {
+                        return _objectSpread({}, action, {
+                          icon: icon
+                        });
+                      });
+                    }
+
+                    return Promise.resolve(action);
+                  })));
+
+                case 3:
+                  updatedActions = _context4.sent;
+                  this.setState({
+                    actions: updatedActions
+                  });
+
+                case 5:
+                case "end":
+                  return _context4.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return _react.default.createElement(_reactNative.ToolbarAndroid, (0, _extends2.default)({}, this.props, this.state, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 142
+            }
+          }));
+        }
+      }]);
+      return IconToolbarAndroid;
+    }(_react.PureComponent), _class.propTypes = {
+      logoName: IconNamePropType,
+      navIconName: IconNamePropType,
+      overflowIconName: IconNamePropType,
+      actions: _propTypes.default.arrayOf(_propTypes.default.shape({
+        title: _propTypes.default.string.isRequired,
+        iconName: IconNamePropType,
+        iconSize: _propTypes.default.number,
+        iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+        show: _propTypes.default.oneOf(['always', 'ifRoom', 'never']),
+        showWithText: _propTypes.default.bool
+      })),
+      iconSize: _propTypes.default.number,
+      iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      titleColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+    }, _class.defaultProps = {
+      iconSize: 24
+    }, _temp));
+  }
+},752,[1,2,6,56,108,29,30,43,46,49,3,197,751,746,68,706],"node_modules/react-native-vector-icons/lib/toolbar-android.js");
+__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
+  module.exports = {
+  "ios-add": 61698,
+  "ios-add-circle": 61697,
+  "ios-add-circle-outline": 61696,
+  "ios-airplane": 61751,
+  "ios-alarm": 62408,
+  "ios-albums": 62410,
+  "ios-alert": 61700,
+  "ios-american-football": 61702,
+  "ios-analytics": 62414,
+  "ios-aperture": 61704,
+  "ios-apps": 61706,
+  "ios-appstore": 61708,
+  "ios-archive": 61710,
+  "ios-arrow-back": 62415,
+  "ios-arrow-down": 62416,
+  "ios-arrow-dropdown": 61712,
+  "ios-arrow-dropdown-circle": 61733,
+  "ios-arrow-dropleft": 61714,
+  "ios-arrow-dropleft-circle": 61737,
+  "ios-arrow-dropright": 61716,
+  "ios-arrow-dropright-circle": 61739,
+  "ios-arrow-dropup": 61718,
+  "ios-arrow-dropup-circle": 61741,
+  "ios-arrow-forward": 62417,
+  "ios-arrow-round-back": 61719,
+  "ios-arrow-round-down": 61720,
+  "ios-arrow-round-forward": 61721,
+  "ios-arrow-round-up": 61722,
+  "ios-arrow-up": 62424,
+  "ios-at": 62426,
+  "ios-attach": 61723,
+  "ios-backspace": 61725,
+  "ios-barcode": 62428,
+  "ios-baseball": 62430,
+  "ios-basket": 61727,
+  "ios-basketball": 62432,
+  "ios-battery-charging": 61728,
+  "ios-battery-dead": 61729,
+  "ios-battery-full": 61730,
+  "ios-beaker": 61732,
+  "ios-bed": 61753,
+  "ios-beer": 61734,
+  "ios-bicycle": 61735,
+  "ios-bluetooth": 61736,
+  "ios-boat": 61738,
+  "ios-body": 62436,
+  "ios-bonfire": 61740,
+  "ios-book": 62440,
+  "ios-bookmark": 61742,
+  "ios-bookmarks": 62442,
+  "ios-bowtie": 61744,
+  "ios-briefcase": 62446,
+  "ios-browsers": 62448,
+  "ios-brush": 61746,
+  "ios-bug": 61748,
+  "ios-build": 61750,
+  "ios-bulb": 61752,
+  "ios-bus": 61754,
+  "ios-business": 61859,
+  "ios-cafe": 61756,
+  "ios-calculator": 62450,
+  "ios-calendar": 62452,
+  "ios-call": 61758,
+  "ios-camera": 62454,
+  "ios-car": 61760,
+  "ios-card": 61762,
+  "ios-cart": 62456,
+  "ios-cash": 61764,
+  "ios-cellular": 61757,
+  "ios-chatboxes": 62458,
+  "ios-chatbubbles": 61766,
+  "ios-checkbox": 61768,
+  "ios-checkbox-outline": 61767,
+  "ios-checkmark": 62463,
+  "ios-checkmark-circle": 61770,
+  "ios-checkmark-circle-outline": 61769,
+  "ios-clipboard": 61772,
+  "ios-clock": 62467,
+  "ios-close": 62470,
+  "ios-close-circle": 61774,
+  "ios-close-circle-outline": 61773,
+  "ios-cloud": 62476,
+  "ios-cloud-circle": 61778,
+  "ios-cloud-done": 61780,
+  "ios-cloud-download": 62472,
+  "ios-cloud-outline": 62473,
+  "ios-cloud-upload": 62475,
+  "ios-cloudy": 62480,
+  "ios-cloudy-night": 62478,
+  "ios-code": 61783,
+  "ios-code-download": 61781,
+  "ios-code-working": 61782,
+  "ios-cog": 62482,
+  "ios-color-fill": 61785,
+  "ios-color-filter": 62484,
+  "ios-color-palette": 61787,
+  "ios-color-wand": 62486,
+  "ios-compass": 61789,
+  "ios-construct": 61791,
+  "ios-contact": 62490,
+  "ios-contacts": 61793,
+  "ios-contract": 61794,
+  "ios-contrast": 61795,
+  "ios-copy": 62492,
+  "ios-create": 61797,
+  "ios-crop": 62494,
+  "ios-cube": 61800,
+  "ios-cut": 61802,
+  "ios-desktop": 61804,
+  "ios-disc": 61806,
+  "ios-document": 61808,
+  "ios-done-all": 61809,
+  "ios-download": 62496,
+  "ios-easel": 61811,
+  "ios-egg": 61813,
+  "ios-exit": 61815,
+  "ios-expand": 61816,
+  "ios-eye": 62501,
+  "ios-eye-off": 61818,
+  "ios-fastforward": 62503,
+  "ios-female": 61819,
+  "ios-filing": 62505,
+  "ios-film": 62507,
+  "ios-finger-print": 61820,
+  "ios-fitness": 61867,
+  "ios-flag": 62509,
+  "ios-flame": 62511,
+  "ios-flash": 61822,
+  "ios-flash-off": 61743,
+  "ios-flashlight": 61761,
+  "ios-flask": 62513,
+  "ios-flower": 62515,
+  "ios-folder": 62517,
+  "ios-folder-open": 61824,
+  "ios-football": 62519,
+  "ios-funnel": 61826,
+  "ios-gift": 61841,
+  "ios-git-branch": 61827,
+  "ios-git-commit": 61828,
+  "ios-git-compare": 61829,
+  "ios-git-merge": 61830,
+  "ios-git-network": 61831,
+  "ios-git-pull-request": 61832,
+  "ios-glasses": 62527,
+  "ios-globe": 61834,
+  "ios-grid": 61836,
+  "ios-hammer": 61838,
+  "ios-hand": 61840,
+  "ios-happy": 61842,
+  "ios-headset": 61844,
+  "ios-heart": 62531,
+  "ios-heart-dislike": 61759,
+  "ios-heart-empty": 61851,
+  "ios-heart-half": 61853,
+  "ios-help": 62534,
+  "ios-help-buoy": 61846,
+  "ios-help-circle": 61848,
+  "ios-help-circle-outline": 61847,
+  "ios-home": 62536,
+  "ios-hourglass": 61699,
+  "ios-ice-cream": 61850,
+  "ios-image": 61852,
+  "ios-images": 61854,
+  "ios-infinite": 62538,
+  "ios-information": 62541,
+  "ios-information-circle": 61856,
+  "ios-information-circle-outline": 61855,
+  "ios-jet": 61861,
+  "ios-journal": 61833,
+  "ios-key": 61863,
+  "ios-keypad": 62544,
+  "ios-laptop": 61864,
+  "ios-leaf": 61866,
+  "ios-link": 61994,
+  "ios-list": 62548,
+  "ios-list-box": 61763,
+  "ios-locate": 61870,
+  "ios-lock": 61872,
+  "ios-log-in": 61873,
+  "ios-log-out": 61874,
+  "ios-magnet": 61876,
+  "ios-mail": 61880,
+  "ios-mail-open": 61878,
+  "ios-mail-unread": 61765,
+  "ios-male": 61881,
+  "ios-man": 61883,
+  "ios-map": 61885,
+  "ios-medal": 61887,
+  "ios-medical": 62556,
+  "ios-medkit": 62558,
+  "ios-megaphone": 61889,
+  "ios-menu": 61891,
+  "ios-mic": 62561,
+  "ios-mic-off": 62559,
+  "ios-microphone": 61894,
+  "ios-moon": 62568,
+  "ios-more": 61896,
+  "ios-move": 61899,
+  "ios-musical-note": 62571,
+  "ios-musical-notes": 62572,
+  "ios-navigate": 62574,
+  "ios-notifications": 61907,
+  "ios-notifications-off": 61905,
+  "ios-notifications-outline": 61747,
+  "ios-nuclear": 61909,
+  "ios-nutrition": 62576,
+  "ios-open": 61911,
+  "ios-options": 61913,
+  "ios-outlet": 61915,
+  "ios-paper": 62578,
+  "ios-paper-plane": 61917,
+  "ios-partly-sunny": 61919,
+  "ios-pause": 62584,
+  "ios-paw": 62586,
+  "ios-people": 62588,
+  "ios-person": 62590,
+  "ios-person-add": 61921,
+  "ios-phone-landscape": 61922,
+  "ios-phone-portrait": 61923,
+  "ios-photos": 62594,
+  "ios-pie": 62596,
+  "ios-pin": 61925,
+  "ios-pint": 62598,
+  "ios-pizza": 61927,
+  "ios-planet": 61931,
+  "ios-play": 62600,
+  "ios-play-circle": 61715,
+  "ios-podium": 61933,
+  "ios-power": 61935,
+  "ios-pricetag": 62605,
+  "ios-pricetags": 62607,
+  "ios-print": 61937,
+  "ios-pulse": 62611,
+  "ios-qr-scanner": 61939,
+  "ios-quote": 61941,
+  "ios-radio": 61945,
+  "ios-radio-button-off": 61942,
+  "ios-radio-button-on": 61943,
+  "ios-rainy": 62613,
+  "ios-recording": 62615,
+  "ios-redo": 62617,
+  "ios-refresh": 62620,
+  "ios-refresh-circle": 61749,
+  "ios-remove": 61948,
+  "ios-remove-circle": 61947,
+  "ios-remove-circle-outline": 61946,
+  "ios-reorder": 61949,
+  "ios-repeat": 61950,
+  "ios-resize": 61951,
+  "ios-restaurant": 61953,
+  "ios-return-left": 61954,
+  "ios-return-right": 61955,
+  "ios-reverse-camera": 62623,
+  "ios-rewind": 62625,
+  "ios-ribbon": 61957,
+  "ios-rocket": 61771,
+  "ios-rose": 62627,
+  "ios-sad": 61959,
+  "ios-save": 61862,
+  "ios-school": 61961,
+  "ios-search": 62629,
+  "ios-send": 61964,
+  "ios-settings": 62631,
+  "ios-share": 61969,
+  "ios-share-alt": 61967,
+  "ios-shirt": 61971,
+  "ios-shuffle": 62633,
+  "ios-skip-backward": 61973,
+  "ios-skip-forward": 61975,
+  "ios-snow": 61976,
+  "ios-speedometer": 62640,
+  "ios-square": 61978,
+  "ios-square-outline": 61788,
+  "ios-star": 62643,
+  "ios-star-half": 62641,
+  "ios-star-outline": 62642,
+  "ios-stats": 61980,
+  "ios-stopwatch": 62645,
+  "ios-subway": 61982,
+  "ios-sunny": 62647,
+  "ios-swap": 61983,
+  "ios-switch": 61985,
+  "ios-sync": 61986,
+  "ios-tablet-landscape": 61987,
+  "ios-tablet-portrait": 62030,
+  "ios-tennisball": 62651,
+  "ios-text": 62032,
+  "ios-thermometer": 62034,
+  "ios-thumbs-down": 62036,
+  "ios-thumbs-up": 62038,
+  "ios-thunderstorm": 62653,
+  "ios-time": 62655,
+  "ios-timer": 62657,
+  "ios-today": 61775,
+  "ios-train": 62040,
+  "ios-transgender": 62041,
+  "ios-trash": 62661,
+  "ios-trending-down": 62042,
+  "ios-trending-up": 62043,
+  "ios-trophy": 62045,
+  "ios-tv": 61717,
+  "ios-umbrella": 62047,
+  "ios-undo": 62663,
+  "ios-unlock": 62049,
+  "ios-videocam": 62669,
+  "ios-volume-high": 61724,
+  "ios-volume-low": 61726,
+  "ios-volume-mute": 62051,
+  "ios-volume-off": 62052,
+  "ios-walk": 62054,
+  "ios-wallet": 61835,
+  "ios-warning": 62056,
+  "ios-watch": 62057,
+  "ios-water": 62059,
+  "ios-wifi": 62061,
+  "ios-wine": 62063,
+  "ios-woman": 62065,
+  "logo-android": 61989,
+  "logo-angular": 61991,
+  "logo-apple": 61993,
+  "logo-bitbucket": 61843,
+  "logo-bitcoin": 61995,
+  "logo-buffer": 61997,
+  "logo-chrome": 61999,
+  "logo-closed-captioning": 61701,
+  "logo-codepen": 62000,
+  "logo-css3": 62001,
+  "logo-designernews": 62002,
+  "logo-dribbble": 62003,
+  "logo-dropbox": 62004,
+  "logo-euro": 62005,
+  "logo-facebook": 62006,
+  "logo-flickr": 61703,
+  "logo-foursquare": 62007,
+  "logo-freebsd-devil": 62008,
+  "logo-game-controller-a": 61755,
+  "logo-game-controller-b": 61825,
+  "logo-github": 62009,
+  "logo-google": 62010,
+  "logo-googleplus": 62011,
+  "logo-hackernews": 62012,
+  "logo-html5": 62013,
+  "logo-instagram": 62014,
+  "logo-ionic": 61776,
+  "logo-ionitron": 61777,
+  "logo-javascript": 62015,
+  "logo-linkedin": 62016,
+  "logo-markdown": 62017,
+  "logo-model-s": 61779,
+  "logo-no-smoking": 61705,
+  "logo-nodejs": 62018,
+  "logo-npm": 61845,
+  "logo-octocat": 62019,
+  "logo-pinterest": 62020,
+  "logo-playstation": 62021,
+  "logo-polymer": 61790,
+  "logo-python": 62022,
+  "logo-reddit": 62023,
+  "logo-rss": 62024,
+  "logo-sass": 62025,
+  "logo-skype": 62026,
+  "logo-slack": 61707,
+  "logo-snapchat": 62027,
+  "logo-steam": 62028,
+  "logo-tumblr": 62029,
+  "logo-tux": 62126,
+  "logo-twitch": 62127,
+  "logo-twitter": 62128,
+  "logo-usd": 62129,
+  "logo-vimeo": 62148,
+  "logo-vk": 61709,
+  "logo-whatsapp": 62149,
+  "logo-windows": 62255,
+  "logo-wordpress": 62256,
+  "logo-xbox": 62284,
+  "logo-xing": 61711,
+  "logo-yahoo": 62285,
+  "logo-yen": 62286,
+  "logo-youtube": 62287,
+  "md-add": 62067,
+  "md-add-circle": 62066,
+  "md-add-circle-outline": 61784,
+  "md-airplane": 61786,
+  "md-alarm": 62068,
+  "md-albums": 62069,
+  "md-alert": 62070,
+  "md-american-football": 62071,
+  "md-analytics": 62072,
+  "md-aperture": 62073,
+  "md-apps": 62074,
+  "md-appstore": 62075,
+  "md-archive": 62076,
+  "md-arrow-back": 62077,
+  "md-arrow-down": 62078,
+  "md-arrow-dropdown": 62080,
+  "md-arrow-dropdown-circle": 62079,
+  "md-arrow-dropleft": 62082,
+  "md-arrow-dropleft-circle": 62081,
+  "md-arrow-dropright": 62084,
+  "md-arrow-dropright-circle": 62083,
+  "md-arrow-dropup": 62086,
+  "md-arrow-dropup-circle": 62085,
+  "md-arrow-forward": 62087,
+  "md-arrow-round-back": 62088,
+  "md-arrow-round-down": 62089,
+  "md-arrow-round-forward": 62090,
+  "md-arrow-round-up": 62091,
+  "md-arrow-up": 62092,
+  "md-at": 62093,
+  "md-attach": 62094,
+  "md-backspace": 62095,
+  "md-barcode": 62096,
+  "md-baseball": 62097,
+  "md-basket": 62098,
+  "md-basketball": 62099,
+  "md-battery-charging": 62100,
+  "md-battery-dead": 62101,
+  "md-battery-full": 62102,
+  "md-beaker": 62103,
+  "md-bed": 61792,
+  "md-beer": 62104,
+  "md-bicycle": 62105,
+  "md-bluetooth": 62106,
+  "md-boat": 62107,
+  "md-body": 62108,
+  "md-bonfire": 62109,
+  "md-book": 62110,
+  "md-bookmark": 62111,
+  "md-bookmarks": 62112,
+  "md-bowtie": 62113,
+  "md-briefcase": 62114,
+  "md-browsers": 62115,
+  "md-brush": 62116,
+  "md-bug": 62117,
+  "md-build": 62118,
+  "md-bulb": 62119,
+  "md-bus": 62120,
+  "md-business": 61860,
+  "md-cafe": 62121,
+  "md-calculator": 62122,
+  "md-calendar": 62123,
+  "md-call": 62124,
+  "md-camera": 62125,
+  "md-car": 62130,
+  "md-card": 62131,
+  "md-cart": 62132,
+  "md-cash": 62133,
+  "md-cellular": 61796,
+  "md-chatboxes": 62134,
+  "md-chatbubbles": 62135,
+  "md-checkbox": 62137,
+  "md-checkbox-outline": 62136,
+  "md-checkmark": 62140,
+  "md-checkmark-circle": 62139,
+  "md-checkmark-circle-outline": 62138,
+  "md-clipboard": 62141,
+  "md-clock": 62142,
+  "md-close": 62144,
+  "md-close-circle": 62143,
+  "md-close-circle-outline": 61798,
+  "md-cloud": 62153,
+  "md-cloud-circle": 62146,
+  "md-cloud-done": 62147,
+  "md-cloud-download": 62150,
+  "md-cloud-outline": 62151,
+  "md-cloud-upload": 62152,
+  "md-cloudy": 62155,
+  "md-cloudy-night": 62154,
+  "md-code": 62158,
+  "md-code-download": 62156,
+  "md-code-working": 62157,
+  "md-cog": 62159,
+  "md-color-fill": 62160,
+  "md-color-filter": 62161,
+  "md-color-palette": 62162,
+  "md-color-wand": 62163,
+  "md-compass": 62164,
+  "md-construct": 62165,
+  "md-contact": 62166,
+  "md-contacts": 62167,
+  "md-contract": 62168,
+  "md-contrast": 62169,
+  "md-copy": 62170,
+  "md-create": 62171,
+  "md-crop": 62172,
+  "md-cube": 62173,
+  "md-cut": 62174,
+  "md-desktop": 62175,
+  "md-disc": 62176,
+  "md-document": 62177,
+  "md-done-all": 62178,
+  "md-download": 62179,
+  "md-easel": 62180,
+  "md-egg": 62181,
+  "md-exit": 62182,
+  "md-expand": 62183,
+  "md-eye": 62185,
+  "md-eye-off": 62184,
+  "md-fastforward": 62186,
+  "md-female": 62187,
+  "md-filing": 62188,
+  "md-film": 62189,
+  "md-finger-print": 62190,
+  "md-fitness": 61868,
+  "md-flag": 62191,
+  "md-flame": 62192,
+  "md-flash": 62193,
+  "md-flash-off": 61801,
+  "md-flashlight": 61803,
+  "md-flask": 62194,
+  "md-flower": 62195,
+  "md-folder": 62197,
+  "md-folder-open": 62196,
+  "md-football": 62198,
+  "md-funnel": 62199,
+  "md-gift": 61849,
+  "md-git-branch": 62202,
+  "md-git-commit": 62203,
+  "md-git-compare": 62204,
+  "md-git-merge": 62205,
+  "md-git-network": 62206,
+  "md-git-pull-request": 62207,
+  "md-glasses": 62208,
+  "md-globe": 62209,
+  "md-grid": 62210,
+  "md-hammer": 62211,
+  "md-hand": 62212,
+  "md-happy": 62213,
+  "md-headset": 62214,
+  "md-heart": 62216,
+  "md-heart-dislike": 61799,
+  "md-heart-empty": 61857,
+  "md-heart-half": 61858,
+  "md-help": 62219,
+  "md-help-buoy": 62217,
+  "md-help-circle": 62218,
+  "md-help-circle-outline": 61805,
+  "md-home": 62220,
+  "md-hourglass": 61713,
+  "md-ice-cream": 62221,
+  "md-image": 62222,
+  "md-images": 62223,
+  "md-infinite": 62224,
+  "md-information": 62226,
+  "md-information-circle": 62225,
+  "md-information-circle-outline": 61807,
+  "md-jet": 62229,
+  "md-journal": 61837,
+  "md-key": 62230,
+  "md-keypad": 62231,
+  "md-laptop": 62232,
+  "md-leaf": 62233,
+  "md-link": 61998,
+  "md-list": 62235,
+  "md-list-box": 62234,
+  "md-locate": 62236,
+  "md-lock": 62237,
+  "md-log-in": 62238,
+  "md-log-out": 62239,
+  "md-magnet": 62240,
+  "md-mail": 62242,
+  "md-mail-open": 62241,
+  "md-mail-unread": 61810,
+  "md-male": 62243,
+  "md-man": 62244,
+  "md-map": 62245,
+  "md-medal": 62246,
+  "md-medical": 62247,
+  "md-medkit": 62248,
+  "md-megaphone": 62249,
+  "md-menu": 62250,
+  "md-mic": 62252,
+  "md-mic-off": 62251,
+  "md-microphone": 62253,
+  "md-moon": 62254,
+  "md-more": 61897,
+  "md-move": 62257,
+  "md-musical-note": 62258,
+  "md-musical-notes": 62259,
+  "md-navigate": 62260,
+  "md-notifications": 62264,
+  "md-notifications-off": 62262,
+  "md-notifications-outline": 62263,
+  "md-nuclear": 62265,
+  "md-nutrition": 62266,
+  "md-open": 62267,
+  "md-options": 62268,
+  "md-outlet": 62269,
+  "md-paper": 62271,
+  "md-paper-plane": 62270,
+  "md-partly-sunny": 62272,
+  "md-pause": 62273,
+  "md-paw": 62274,
+  "md-people": 62275,
+  "md-person": 62277,
+  "md-person-add": 62276,
+  "md-phone-landscape": 62278,
+  "md-phone-portrait": 62279,
+  "md-photos": 62280,
+  "md-pie": 62281,
+  "md-pin": 62282,
+  "md-pint": 62283,
+  "md-pizza": 62292,
+  "md-planet": 62294,
+  "md-play": 62295,
+  "md-play-circle": 61812,
+  "md-podium": 62296,
+  "md-power": 62297,
+  "md-pricetag": 62298,
+  "md-pricetags": 62299,
+  "md-print": 62300,
+  "md-pulse": 62301,
+  "md-qr-scanner": 62302,
+  "md-quote": 62303,
+  "md-radio": 62306,
+  "md-radio-button-off": 62304,
+  "md-radio-button-on": 62305,
+  "md-rainy": 62307,
+  "md-recording": 62308,
+  "md-redo": 62309,
+  "md-refresh": 62310,
+  "md-refresh-circle": 61992,
+  "md-remove": 62312,
+  "md-remove-circle": 62311,
+  "md-remove-circle-outline": 61814,
+  "md-reorder": 62313,
+  "md-repeat": 62314,
+  "md-resize": 62315,
+  "md-restaurant": 62316,
+  "md-return-left": 62317,
+  "md-return-right": 62318,
+  "md-reverse-camera": 62319,
+  "md-rewind": 62320,
+  "md-ribbon": 62321,
+  "md-rocket": 61817,
+  "md-rose": 62322,
+  "md-sad": 62323,
+  "md-save": 61865,
+  "md-school": 62324,
+  "md-search": 62325,
+  "md-send": 62326,
+  "md-settings": 62327,
+  "md-share": 62329,
+  "md-share-alt": 62328,
+  "md-shirt": 62330,
+  "md-shuffle": 62331,
+  "md-skip-backward": 62332,
+  "md-skip-forward": 62333,
+  "md-snow": 62334,
+  "md-speedometer": 62335,
+  "md-square": 62337,
+  "md-square-outline": 62336,
+  "md-star": 62340,
+  "md-star-half": 62338,
+  "md-star-outline": 62339,
+  "md-stats": 62341,
+  "md-stopwatch": 62342,
+  "md-subway": 62343,
+  "md-sunny": 62344,
+  "md-swap": 62345,
+  "md-switch": 62346,
+  "md-sync": 62347,
+  "md-tablet-landscape": 62348,
+  "md-tablet-portrait": 62349,
+  "md-tennisball": 62350,
+  "md-text": 62351,
+  "md-thermometer": 62352,
+  "md-thumbs-down": 62353,
+  "md-thumbs-up": 62354,
+  "md-thunderstorm": 62355,
+  "md-time": 62356,
+  "md-timer": 62357,
+  "md-today": 61821,
+  "md-train": 62358,
+  "md-transgender": 62359,
+  "md-trash": 62360,
+  "md-trending-down": 62361,
+  "md-trending-up": 62362,
+  "md-trophy": 62363,
+  "md-tv": 61823,
+  "md-umbrella": 62364,
+  "md-undo": 62365,
+  "md-unlock": 62366,
+  "md-videocam": 62367,
+  "md-volume-high": 61731,
+  "md-volume-low": 61745,
+  "md-volume-mute": 62369,
+  "md-volume-off": 62370,
+  "md-walk": 62372,
+  "md-wallet": 61839,
+  "md-warning": 62373,
+  "md-watch": 62374,
+  "md-water": 62375,
+  "md-wifi": 62376,
+  "md-wine": 62377,
+  "md-woman": 62378
+};
+},753,[],"node_modules/react-native-vector-icons/glyphmaps/Ionicons.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
   var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
 
   Object.defineProperty(exports, "__esModule", {
@@ -111755,6 +114412,8 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./../../node_modules/react-transform-hmr/lib/index.js"));
 
   var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
+
+  var _layoutDetailPage = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./layoutDetailPage"));
 
   var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/page/layout/layoutPage.js";
   var _components = {
@@ -111779,30 +114438,96 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var HelloWorldApp = _wrapComponent("HelloWorldApp")(function (_Component) {
     (0, _inherits2.default)(HelloWorldApp, _Component);
 
-    function HelloWorldApp() {
+    function HelloWorldApp(props) {
+      var _this;
+
       (0, _classCallCheck2.default)(this, HelloWorldApp);
-      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HelloWorldApp).apply(this, arguments));
+      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HelloWorldApp).call(this, props));
+      _this.state = {
+        dataSource: ['1', '2', '3']
+      };
+      return _this;
     }
 
     (0, _createClass2.default)(HelloWorldApp, [{
       key: "render",
       value: function render() {
+        var _this2 = this;
+
+        return _react.default.createElement(_reactNative.FlatList, {
+          data: this.state.dataSource,
+          renderItem: function renderItem(_ref) {
+            var item = _ref.item;
+            return _this2._createListItem(item);
+          },
+          ItemSeparatorComponent: this._separator,
+          keyExtractor: this._extraUniqueKey,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        });
+      }
+    }, {
+      key: "_extraUniqueKey",
+      value: function _extraUniqueKey(item, index) {
+        return "index" + index + item;
+      }
+    }, {
+      key: "_separator",
+      value: function _separator() {
         return _react.default.createElement(_reactNative.View, {
           style: {
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center"
+            height: 0.5,
+            backgroundColor: '#999999'
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 7
+            lineNumber: 35
           }
-        }, _react.default.createElement(_reactNative.Text, {
+        });
+      }
+    }, {
+      key: "_createListItem",
+      value: function _createListItem(item) {
+        var _this3 = this;
+
+        return _react.default.createElement(_reactNative.TouchableOpacity, {
+          activeOpacity: 0.5,
+          onPress: function onPress() {
+            return _this3._onItemClick(item);
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 8
+            lineNumber: 39
           }
-        }, "\u5E03\u5C40"));
+        }, _react.default.createElement(_reactNative.View, {
+          style: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: 5,
+            backgroundColor: '#fff',
+            padding: 10
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          style: {
+            marginLeft: 6
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 47
+          }
+        }, item)));
+      }
+    }, {
+      key: "_onItemClick",
+      value: function _onItemClick(item) {
+        console.log("data" + " = " + item);
+        this.props.navigation.navigate('Detail');
       }
     }]);
     return HelloWorldApp;
@@ -111810,7 +114535,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default2 = HelloWorldApp;
   exports.default = _default2;
-},704,[1,2,29,30,43,46,49,3,197,10],"page/layout/layoutPage.js");
+},754,[1,2,29,30,43,46,49,3,197,10,759],"page/layout/layoutPage.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
 
@@ -111891,7 +114616,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default2 = HelloWorldApp;
   exports.default = _default2;
-},705,[1,2,29,30,43,46,49,3,197,10],"page/animation/animationPage.js");
+},755,[1,2,29,30,43,46,49,3,197,10],"page/animation/animationPage.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
 
@@ -112068,7 +114793,250 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       paddingTop: 50
     }
   });
-},706,[1,2,29,30,43,46,49,3,197,10],"page/network/networkPage.js");
+},756,[1,2,29,30,43,46,49,3,197,10],"page/network/networkPage.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[7], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/page/function/functionPage.js";
+  var _components = {
+    HelloWorldApp: {
+      displayName: "HelloWorldApp"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "page/function/functionPage.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var HelloWorldApp = _wrapComponent("HelloWorldApp")(function (_Component) {
+    (0, _inherits2.default)(HelloWorldApp, _Component);
+
+    function HelloWorldApp() {
+      (0, _classCallCheck2.default)(this, HelloWorldApp);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HelloWorldApp).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(HelloWorldApp, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "\u529F\u80FD"));
+      }
+    }]);
+    return HelloWorldApp;
+  }(_react.Component));
+
+  var _default2 = HelloWorldApp;
+  exports.default = _default2;
+},757,[1,2,29,30,43,46,49,3,197,10],"page/function/functionPage.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[7], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/page/frame/framePage.js";
+  var _components = {
+    HelloWorldApp: {
+      displayName: "HelloWorldApp"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "page/frame/framePage.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var HelloWorldApp = _wrapComponent("HelloWorldApp")(function (_Component) {
+    (0, _inherits2.default)(HelloWorldApp, _Component);
+
+    function HelloWorldApp() {
+      (0, _classCallCheck2.default)(this, HelloWorldApp);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HelloWorldApp).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(HelloWorldApp, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "\u67B6\u6784"));
+      }
+    }]);
+    return HelloWorldApp;
+  }(_react.Component));
+
+  var _default2 = HelloWorldApp;
+  exports.default = _default2;
+},758,[1,2,29,30,43,46,49,3,197,10],"page/frame/framePage.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[7], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
+
+  var _jsxFileName = "/Users/zcgt_ios_01/Desktop/gitLib/BJRN/MyRNApp/page/layout/layoutDetailPage.js";
+  var _components = {
+    HelloWorldApp: {
+      displayName: "HelloWorldApp"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "page/layout/layoutDetailPage.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var HelloWorldApp = _wrapComponent("HelloWorldApp")(function (_Component) {
+    (0, _inherits2.default)(HelloWorldApp, _Component);
+
+    function HelloWorldApp() {
+      (0, _classCallCheck2.default)(this, HelloWorldApp);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HelloWorldApp).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(HelloWorldApp, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "\u8BE6\u60C5"));
+      }
+    }]);
+    return HelloWorldApp;
+  }(_react.Component));
+
+  var _default2 = HelloWorldApp;
+  exports.default = _default2;
+},759,[1,2,29,30,43,46,49,3,197,10],"page/layout/layoutDetailPage.js");
 __r(92);
 __r(0);
 //# sourceMappingURL=index.ios.map
