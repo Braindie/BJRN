@@ -1,101 +1,108 @@
 import React, { Component } from 'react';
 import {
   Text,
-  FlatList,
-  StyleSheet,
   View,
-  Image,
-  Button,
-  ActivityIndicator
 } from 'react-native';
+import { 
+  createStackNavigator, 
+  createBottomTabNavigator, 
+  createAppContainer } from 'react-navigation'
+import Icon from "react-native-vector-icons/Ionicons"
+// import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-var REQUEST_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
-// var REQUEST_URL = "http://v.juhe.cn/toutiao/index?key=c76f60c92d392d0a59d7cac0cae97a44";
+import Layout from '../layout/layoutPage'
+import Animation from '../animation/animationPage'
+import Newwork from '../network/networkPage'
 
+
+// const StackNavigator = createStackNavigator(
+//   {
+//     Layout,
+//     Animation,
+//     Newwork,
+//   },
+//   {
+//     initialRouteName: '布局',
+//     defaultNavigationOptions: {
+//       headerBackTitle: null,
+//       headerTitleStyle: {
+//         fontWeight: 'bold',
+//       },
+//       header: null
+//     }
+//   }
+// )
+
+const LayoutStack = createStackNavigator({Layout})
+const AnimationStack = createStackNavigator({Animation})
+const NetworkStack = createStackNavigator({Newwork})
+
+const BottomTabNavigator = createBottomTabNavigator(
+  {
+    LayoutStack: {
+      screen: LayoutStack,
+      navigationOptions: ({navigation}) => ({
+        tabBarLabel: '布局',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={'ios-home'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      })
+    },
+    AnimationStack: {
+      screen: AnimationStack,
+      navigationOptions: {
+        tabBarLabel: '动画',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={'ios-happy'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      }
+    },
+    NetworkStack: {
+      screen: NetworkStack,
+      navigationOptions: {
+        tabBarLabel: '网络',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Icon
+            name={'ios-git-network'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      }
+    }
+  },
+  {
+    initialRouteName: 'LayoutStack',
+    order: ['LayoutStack','AnimationStack','NetworkStack'],
+    tabBarOptions: {
+      activeTintColor: 'red', //活动选项卡的标签和图标颜色
+      activeBackgroundColor: 'white', //活动选项卡的背景色
+      inactiveTintColor: 'black', //"非活动" 选项卡的标签和图标颜色
+      inactiveBackgroundColor: 'white', //非活动选项卡的背景色
+      showIcon: true,
+      style: {
+        backgroundColor: 'white',
+        height: 49
+      },
+    },
+  }
+)
+// const AppContainner = createAppContainer(StackNavigator); //顶部导航
+const AppContainner = createAppContainer(BottomTabNavigator);
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataString: "点击按钮加载数据",
-      loading: false
-    };
-    // this.fetchData = this.fetchData.bind(this);
-  }
 
   render() {
-    if (this.state.loading) {
-      return this.renderLoadingView();
-    }
     return (
-      <View style={styles.viewStyle}>
-        <Button 
-          style={styles.buttonStyle}
-          onPress={() => this.onPressAction('点击')}
-          title="请求数据"
-          color="#841584"
-        >
-        </Button>
-        <Text style={styles.textStyle}>
-          {this.state.dataString}
-        </Text>
-      </View>
+      <AppContainner/>
     );
   }
-
-  renderLoadingView() {
-    return (
-      <View style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
-    )
-  }
-
-  onPressAction(event) {
-    this.fetchData();
-  }
-
-  componentDidMount() {
-    console.log('初始化成功');
-    // this.fetchData();
-  }
-
-  fetchData() {
-    console.log('开始请求');
-    this.setState({
-      loading: true
-    })
-    fetch(REQUEST_URL).then(response => response.json()).then(resopnseData => {
-      this.setState({
-        dataString: resopnseData.disclaimer,
-        loading: false
-      })
-      console.log(resopnseData);
-    })
-  }
 }
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
-  },
-  viewStyle: {
-    marginTop: 40,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  buttonStyle: {
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#7FFF00'
-  },
-  textStyle: {
-    paddingTop: 50
-  }
-});
