@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
 import { 
   createStackNavigator, 
   createBottomTabNavigator, 
   createAppContainer } from 'react-navigation'
 import Icon from "react-native-vector-icons/Ionicons"
-// import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import Layout from '../layout/layoutPage'
+// 自定义组件
+import LayoutPage from '../layout/layoutPage'
 import LayoutDetailPage from '../layout/layoutDetailPage'
-import Animation from '../animation/animationPage'
-import Network from '../network/networkPage'
-import Frame from '../frame/framePage'
+import AnimationPage from '../animation/animationPage'
+import NetworkPage from '../network/networkPage'
+import FramePage from '../frame/framePage'
 import FunctionPage from '../function/functionPage'
 
-const LayoutStack = createStackNavigator({
+// 提供一种在每个新屏幕放置在堆栈顶部的屏幕之间转换的方法。（类似于导航控制器）
+const LayoutStack = createStackNavigator({ // 有路由功能
   Layout: {
-    screen: Layout,
-    navigationOptions: {
+    screen: LayoutPage, // 组件
+    navigationOptions: { // 导航器本身的导航选项，用于配置父导航器
       headerTitle: '布局'
     }
   },
@@ -28,7 +25,7 @@ const LayoutStack = createStackNavigator({
 })
 const AnimationStack = createStackNavigator({
   Animation: {
-    screen: Animation,
+    screen: AnimationPage,
     navigationOptions: {
       headerTitle: '动画'
     }
@@ -36,7 +33,7 @@ const AnimationStack = createStackNavigator({
 })
 const NetworkStack = createStackNavigator({
   Network: {
-    screen: Network,
+    screen: NetworkPage,
     navigationOptions: {
       headerTitle: '网络'
     }
@@ -44,14 +41,14 @@ const NetworkStack = createStackNavigator({
 })
 const FrameStack = createStackNavigator({
   Frame: {
-    screen: Frame,
+    screen: FramePage,
     navigationOptions: {
       headerTitle: '架构'
     }
   }
 })
 const FunctionStack = createStackNavigator({
-  FunctionPage: {
+  Function: {
     screen: FunctionPage,
     navigationOptions: {
       headerTitle: '功能'
@@ -59,11 +56,12 @@ const FunctionStack = createStackNavigator({
   }
 })
 
+// 页面底部的标签栏，可让您在不同路由之间进行切换。 路由被懒加载 - 它们的屏幕组件直到第一次获取焦点时才被加载。
 const BottomTabNavigator = createBottomTabNavigator(
   {
-    LayoutStack: {
+    LayoutStackTab: {
       screen: LayoutStack,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: ({navigation}) => ({// 导航器本身的导航选项，用于配置父导航器
         tabBarLabel: '布局',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
@@ -74,7 +72,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         )
       })
     },
-    AnimationStack: {
+    AnimationStackTab: {
       screen: AnimationStack,
       navigationOptions: {
         tabBarLabel: '动画',
@@ -87,7 +85,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    NetworkStack: {
+    NetworkStackTab: {
       screen: NetworkStack,
       navigationOptions: {
         tabBarLabel: '网络',
@@ -100,7 +98,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    FrameStack: {
+    FrameStackTab: {
       screen: FrameStack,
       navigationOptions: ({navigation}) => ({
         tabBarLabel: '架构',
@@ -113,7 +111,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         )
       })
     },
-    FunctionStack: {
+    FunctionStackTab: {
       screen: FunctionStack,
       navigationOptions: ({navigation}) => ({
         tabBarLabel: '功能',
@@ -128,9 +126,9 @@ const BottomTabNavigator = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'LayoutStack',
-    order: ['LayoutStack','AnimationStack','NetworkStack','FrameStack','FunctionStack'],
-    tabBarOptions: {
+    initialRouteName: 'LayoutStackTab', // 第一次加载时初始选项卡路由的 routeName。
+    order: ['LayoutStackTab','AnimationStackTab','NetworkStackTab','FrameStackTab','FunctionStackTab'], // 定义选项卡顺序的 routeNames 数组。
+    tabBarOptions: { // 具有以下属性的对象
       activeTintColor: 'red', //活动选项卡的标签和图标颜色
       activeBackgroundColor: 'white', //活动选项卡的背景色
       inactiveTintColor: 'black', //"非活动" 选项卡的标签和图标颜色
@@ -144,6 +142,7 @@ const BottomTabNavigator = createBottomTabNavigator(
   }
 )
 
+// App 容器负责管理应用的 state, 并将顶层的 navigator 链接到整个应用环境。
 const AppContainner = createAppContainer(BottomTabNavigator);
 
 export default class App extends Component {

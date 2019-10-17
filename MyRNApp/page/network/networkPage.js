@@ -6,8 +6,8 @@ import {
   Button,
   ActivityIndicator } from 'react-native';
 
-var REQUEST_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
-// var REQUEST_URL = "http://v.juhe.cn/toutiao/index?key=c76f60c92d392d0a59d7cac0cae97a44";
+const REQUEST_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
+// const REQUEST_URL = "http://v.juhe.cn/toutiao/index?key=c76f60c92d392d0a59d7cac0cae97a44";
   
 export default class HelloWorldApp extends Component {
 
@@ -18,6 +18,12 @@ export default class HelloWorldApp extends Component {
       loading: false
     };
     // this.fetchData = this.fetchData.bind(this);
+  }
+
+  // 生命周期：一般在这进行网络请求
+  componentDidMount() {
+    console.log('初始化成功');
+    // this.fetchData();
   }
 
   render() {
@@ -40,6 +46,8 @@ export default class HelloWorldApp extends Component {
     );
   }
 
+
+  // 加载loading
   renderLoadingView() {
     return (
       <View style={[styles.container, styles.horizontal]}>
@@ -48,13 +56,9 @@ export default class HelloWorldApp extends Component {
     )
   }
 
+  // 按钮点击事件
   onPressAction(event) {
     this.fetchData();
-  }
-
-  componentDidMount() {
-    console.log('初始化成功');
-    // this.fetchData();
   }
 
   fetchData() {
@@ -63,7 +67,7 @@ export default class HelloWorldApp extends Component {
       loading: true
     })
     fetch(REQUEST_URL).then(response => response.json()).then(resopnseData => {
-      this.setState({
+      this.setState({ // 调用setState更新状态
         dataString: resopnseData.disclaimer,
         loading: false
       })
