@@ -8,9 +8,14 @@ import Icon from "react-native-vector-icons/Ionicons"
 // 自定义组件
 import LayoutPage from '../layout/layoutPage'
 import LayoutDetailPage from '../layout/layoutDetailPage'
+
 import AnimationPage from '../animation/animationPage'
+
 import NetworkPage from '../network/networkPage'
+import NetworkDetailPage from '../network/networkDetailPage'
+
 import FramePage from '../frame/framePage'
+
 import FunctionPage from '../function/functionPage'
 
 // 提供一种在每个新屏幕放置在堆栈顶部的屏幕之间转换的方法。（类似于导航控制器）
@@ -21,7 +26,7 @@ const LayoutStack = createStackNavigator({ // 有路由功能
       headerTitle: '布局'
     }
   },
-  Detail: LayoutDetailPage
+  LayoutDetail: LayoutDetailPage
 })
 const AnimationStack = createStackNavigator({
   Animation: {
@@ -35,10 +40,23 @@ const NetworkStack = createStackNavigator({
   Network: {
     screen: NetworkPage,
     navigationOptions: {
-      headerTitle: '网络'
+      headerTitle: '网络',
+      headerBackTitle: null, // 源屏幕 (而不是目标屏幕) 中定义
     }
-  }
+  },
+  NetworkDetail: {
+    screen: NetworkDetailPage,
+    navigationOptions: {
+      headerTitle: '网络详情',
+    }
+  } 
 })
+// 二级控制器隐藏标签栏
+NetworkStack.navigationOptions = ({ navigation }) => {
+  return {
+      tabBarVisible: navigation.state.index === 0,
+  };
+};
 const FrameStack = createStackNavigator({
   Frame: {
     screen: FramePage,
@@ -57,7 +75,7 @@ const FunctionStack = createStackNavigator({
 })
 
 // 页面底部的标签栏，可让您在不同路由之间进行切换。 路由被懒加载 - 它们的屏幕组件直到第一次获取焦点时才被加载。
-const BottomTabNavigator = createBottomTabNavigator(
+const BottomTabBar = createBottomTabNavigator(
   {
     LayoutStackTab: {
       screen: LayoutStack,
@@ -143,7 +161,7 @@ const BottomTabNavigator = createBottomTabNavigator(
 )
 
 // App 容器负责管理应用的 state, 并将顶层的 navigator 链接到整个应用环境。
-const AppContainner = createAppContainer(BottomTabNavigator);
+const AppContainner = createAppContainer(BottomTabBar);
 
 export default class App extends Component {
   render() {

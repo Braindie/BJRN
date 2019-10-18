@@ -56,6 +56,6 @@ export default class LayoutPage extends Component {
   }
   _onItemClick(item) {
     console.log("data" + " = " + item);
-    this.props.navigation.navigate('Detail')
+    this.props.navigation.navigate('LayoutDetail')
   }
 }
