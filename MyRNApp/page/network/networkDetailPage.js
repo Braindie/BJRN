@@ -17,7 +17,8 @@ export default class HelloWorldApp extends Component {
     super(props);
     this.state = {
       loading: true,
-      data: []
+      data: [],
+      isRefreshing: false
     };
     // this.fetchData = this.fetchData.bind(this);
   }
@@ -39,6 +40,8 @@ export default class HelloWorldApp extends Component {
           renderItem={this.renderMovie}
           style={styles.list}
           keyExtractor={item => item.id}
+          onRefresh={() => this._onRefresh()}
+          refreshing={this.state.isRefreshing}
         />
       </View>
     );
@@ -74,18 +77,25 @@ export default class HelloWorldApp extends Component {
     )
   }
 
+  // 下拉刷新
+  _onRefresh() {
+    this.fetchData()
+  }
+
   // 网络请求
   fetchData() {
     console.log('开始请求');
     this.setState({
-      loading: true
+      loading: true,
+      isRefreshing: true
     })
     fetch(REQUEST_URL)
       .then(response => response.json())
       .then(resopnseData => {
         this.setState({ // 调用setState更新状态
           data: resopnseData.movies,
-          loading: false
+          loading: false,
+          isRefreshing: false
         })
         console.log(resopnseData);
     })
