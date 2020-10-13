@@ -23,7 +23,7 @@ const LayoutStack = createStackNavigator({ // 有路由功能
   Layout: {
     screen: LayoutPage, // 组件
     navigationOptions: { // 导航器本身的导航选项，用于配置父导航器
-      headerTitle: '布局'
+      headerTitle: 'Layout'
     }
   },
   LayoutDetail: LayoutDetailPage
@@ -32,7 +32,7 @@ const AnimationStack = createStackNavigator({
   Animation: {
     screen: AnimationPage,
     navigationOptions: {
-      headerTitle: '动画'
+      headerTitle: 'Draw'
     }
   }
 })
@@ -40,14 +40,14 @@ const NetworkStack = createStackNavigator({
   Network: {
     screen: NetworkPage,
     navigationOptions: {
-      headerTitle: '网络',
+      headerTitle: 'Data',
       headerBackTitle: null, // 源屏幕 (而不是目标屏幕) 中定义
     }
   },
   NetworkDetail: {
     screen: NetworkDetailPage,
     navigationOptions: {
-      headerTitle: '网络详情',
+      headerTitle: 'Data Detail',
     }
   } 
 })
@@ -61,7 +61,7 @@ const FrameStack = createStackNavigator({
   Frame: {
     screen: FramePage,
     navigationOptions: {
-      headerTitle: '架构'
+      headerTitle: 'Frame'
     }
   }
 })
@@ -69,7 +69,7 @@ const FunctionStack = createStackNavigator({
   Function: {
     screen: FunctionPage,
     navigationOptions: {
-      headerTitle: '功能'
+      headerTitle: 'Func'
     }
   }
 })
@@ -80,7 +80,7 @@ const BottomTabBar = createBottomTabNavigator(
     LayoutStackTab: {
       screen: LayoutStack,
       navigationOptions: ({navigation}) => ({// 导航器本身的导航选项，用于配置父导航器
-        tabBarLabel: '布局',
+        tabBarLabel: 'Layout',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={'ios-home'}
@@ -93,7 +93,7 @@ const BottomTabBar = createBottomTabNavigator(
     AnimationStackTab: {
       screen: AnimationStack,
       navigationOptions: {
-        tabBarLabel: '动画',
+        tabBarLabel: 'Draw',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={'ios-happy'}
@@ -106,7 +106,7 @@ const BottomTabBar = createBottomTabNavigator(
     NetworkStackTab: {
       screen: NetworkStack,
       navigationOptions: {
-        tabBarLabel: '网络',
+        tabBarLabel: 'Data',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={'ios-git-network'}
@@ -119,7 +119,7 @@ const BottomTabBar = createBottomTabNavigator(
     FrameStackTab: {
       screen: FrameStack,
       navigationOptions: ({navigation}) => ({
-        tabBarLabel: '架构',
+        tabBarLabel: 'Frame',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={'ios-sunny'}
@@ -132,7 +132,7 @@ const BottomTabBar = createBottomTabNavigator(
     FunctionStackTab: {
       screen: FunctionStack,
       navigationOptions: ({navigation}) => ({
-        tabBarLabel: '功能',
+        tabBarLabel: 'Func',
         tabBarIcon: ({tintColor, focused}) => (
           <Icon
             name={'ios-funnel'}
