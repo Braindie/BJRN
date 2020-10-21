@@ -11,7 +11,7 @@ export default class HelloWorldApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: ['fetch']
+      dataSource: ['fetch（原生js）','fetch（原生js）','fetch（原生js）']
     }
   }
 
